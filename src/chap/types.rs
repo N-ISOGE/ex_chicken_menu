@@ -1,3 +1,10 @@
+
+extern crate rand;
+
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
 fn give_num(one: i32, two: i32) -> i32 {
     // 지역변수 선언, 정의
     let result = one * two;
@@ -10,12 +17,6 @@ fn give_num(one: i32, two: i32) -> i32 {
     // 반환은 단순하게 반환할 것에 대한 표현식으로 작성 가능
     wow
 }
-
-extern crate rand;
-
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
 
 //
 //
@@ -38,8 +39,8 @@ fn main() {
         let woo = 4;
         println!("Hello, world! {}", woo);
         {
-            let woow = 10;
-            println!("Hello, world! {}", woow);
+            let wow2 = 10;
+            println!("Hello, world! {}", wow2);
         }
         println!("Hello, world! {}", woo);
         println!("Hello! {}", guess);
