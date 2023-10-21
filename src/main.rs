@@ -20,3 +20,8 @@ fn take_ownership(input: String) {
 fn makes_copy(input: i32) {
     println!("copy {}", input)
 }
+
+fn give_ownership() -> String {
+    let some_string = String::from("returned string");
+    some_string
+}
