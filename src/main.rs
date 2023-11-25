@@ -1,27 +1,19 @@
+mod chap;
+#[path = "치킨메뉴/mod.rs"]
+mod 치킨메뉴;
+
+
+fn calc_len(s: &String) -> usize {// &String : String에 대한 참조자
+    s.len()
+}
+
 fn main() {
-    println!("hello!");
-    let s1 = String::from("woow");
-    println!("{}", s1);
+    println!(" {} ", chap::types::give_num(10, 30));
+    let s1 = String::from("hello");
 
-    take_ownership(s1);
-    // println!("{}", s1);
+    let end = 치킨메뉴::치킨_main();
 
-    let x = 4;
+    calc_len(&s1); // & 연산자 사용, 참조자
 
-    makes_copy(x);
-
-    println!("{}", x);
-}
-
-fn take_ownership(input: String) {
-    println!("take {}", input);
-}
-
-fn makes_copy(input: i32) {
-    println!("copy {}", input)
-}
-
-fn give_ownership() -> String {
-    let some_string = String::from("returned string");
-    some_string
+    println!("{} {}", s1, end.is_ok());
 }

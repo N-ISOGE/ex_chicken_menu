@@ -1,11 +1,6 @@
-
 extern crate rand;
 
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
-
-fn give_num(one: i32, two: i32) -> i32 {
+pub fn give_num(one: i32, two: i32) -> i32 {
     // 지역변수 선언, 정의
     let result = one * two;
     // 함수 호출
@@ -23,7 +18,12 @@ fn give_num(one: i32, two: i32) -> i32 {
 //
 //
 
+#[test]
 fn main() {
+    use std::cmp::Ordering;
+    use std::io;
+    use rand::Rng;
+
     println!("Hello, world! {}", give_num(2, 9));
 
     let secret_num = rand::thread_rng().gen_range(1..101);
