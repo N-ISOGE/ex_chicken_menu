@@ -66,15 +66,16 @@ fn ui<B: Backend>(frame: &mut ratatui::terminal::Frame) { // 화면에 그리고
         ])
         .split(size);
 
-
     let upper_block = Block::default()
         .borders(Borders::NONE)
         .title(ratatui::widgets::block::Title::from("My chicken menu"));
     frame.render_widget(upper_block, chunks[0]);
+
     let middle_panel = Paragraph::new("안녕 Ratatui! (나가려면 'ㅂ'를 입력)")
         .white()
         .on_blue();
     frame.render_widget(middle_panel, chunks[1]);
+
     let lower_block = Block::default()
         .borders(Borders::ALL)
         .title(ratatui::widgets::block::Title::from("하단 상태 표시"));
