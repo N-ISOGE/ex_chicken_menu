@@ -1,34 +1,30 @@
 use std::io::stdout;
 
-use crossterm::{
-    event::{self, KeyCode, KeyEventKind, KeyEvent},
-    ExecutableCommand,
-    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
-};
-use ratatui::{self, prelude::*, widgets::*};
+use crossterm::{event, terminal, ExecutableCommand};
+use ratatui::{layout, prelude, widgets};
 
-
-pub fn 치킨_main() -> std::io::Result<()> {
+pub fn main() -> std::io::Result<()> {
     // set up terminal
-    stdout().execute(EnterAlternateScreen)?;
-    enable_raw_mode()?;
+    stdout().execute(terminal::EnterAlternateScreen)?;
+    terminal::enable_raw_mode()?;
 
-    let mut terminal =
-        Terminal::new(CrosstermBackend::new(stdout()))?;
+    let mut terminal = ratatui::Terminal::new(prelude::CrosstermBackend::new(stdout()))?;
 
     let result_app = run_app(&mut terminal);
 
     // restore terminal
-    disable_raw_mode()?;
-    stdout().execute(LeaveAlternateScreen)?;
+    terminal::disable_raw_mode()?;
+    stdout().execute(terminal::LeaveAlternateScreen)?;
     terminal.clear()?;
 
-    if let Err(err) = result_app { println!("{err:?}"); }
+    if let Err(err) = result_app {
+        println!("{err:?}");
+    }
 
     Ok(())
 }
 
-fn run_app<B: Backend>(terminal: &mut Terminal<B>) -> std::io::Result<()> {
+fn run_app<B: prelude::Backend>(terminal: &mut prelude::Terminal<B>) -> std::io::Result<()> {
     // main loop가 들어갈 곳
     loop {
         // 화면 그리기
@@ -36,7 +32,7 @@ fn run_app<B: Backend>(terminal: &mut Terminal<B>) -> std::io::Result<()> {
 
         // 입력 처리
         if let Ok(res) = input_handler::<B>() {
-            if res.kind == KeyEventKind::Press && res.code == KeyCode::Char('ㅂ') {
+            if res.kind == event::KeyEventKind::Press && res.code == event::KeyCode::Char('ㅂ') {
                 return Ok(());
             }
         }
@@ -47,42 +43,47 @@ fn run_app<B: Backend>(terminal: &mut Terminal<B>) -> std::io::Result<()> {
 //     NoInput
 // }
 
-fn input_handler<B: Backend>() -> std::io::Result<KeyEvent> {
+fn input_handler<B: prelude::Backend>() -> std::io::Result<event::KeyEvent> {
     // 이벤트를 처리함
-    if event::poll(std::time::Duration::from_millis(16))? {
-        if let event::Event::Key(key) = event::read()? {
+    if crossterm::event::poll(std::time::Duration::from_millis(16))? {
+        if let crossterm::event::Event::Key(key) = crossterm::event::read()? {
             return Ok(key);
         }
     }
     return Err(std::io::Error::other("no input"));
 }
 
-fn ui<B: Backend>(frame: &mut ratatui::terminal::Frame) { // 화면에 그리기
+fn ui<B: prelude::Backend>(frame: &mut ratatui::terminal::Frame) {
+    // 화면에 그리기
     // 레이아웃 결정
     let size = frame.size();
-    
-    let chunks = Layout::default()
-        .direction(Direction::Vertical)
+
+    let chunks = layout::Layout::default()
+        .direction(layout::Direction::Vertical)
         .constraints([
-            Constraint::Length(2),
-            Constraint::Min(0),
-            Constraint::Length(3)
+            prelude::Constraint::Length(2),
+            prelude::Constraint::Min(0),
+            prelude::Constraint::Length(3),
         ])
         .split(size);
-    
+
     // 구역의 속성 설정
-    let upper_block = Block::default()
-        .borders(Borders::NONE)
-        .title(ratatui::widgets::block::Title::from("My chicken menu"));
+
+    let upper_block = widgets::Block::default()
+        .borders(widgets::Borders::NONE)
+        .title(widgets::block::Title::from("My chicken menu"));
     frame.render_widget(upper_block, chunks[0]);
 
-    let middle_panel = Paragraph::new("안녕 Ratatui! (나가려면 'ㅂ'를 입력)")
-        .white()
-        .on_blue();
-    frame.render_widget(middle_panel, chunks[1]);
-
-    let lower_block = Block::default()
-        .borders(Borders::ALL)
-        .title(ratatui::widgets::block::Title::from("하단 상태 표시"));
+    let lower_block = widgets::Block::default()
+        .borders(widgets::Borders::ALL)
+        .title(widgets::block::Title::from("하단 상태 표시"));
     frame.render_widget(lower_block, chunks[2]);
+
+    {
+        use ratatui::style::Stylize;
+        let middle_panel = widgets::Paragraph::new("안녕 Ratatui! (나가려면 'ㅂ'를 입력)")
+            .on_blue()
+            .white();
+        frame.render_widget(middle_panel, chunks[1]);
+    }
 }
