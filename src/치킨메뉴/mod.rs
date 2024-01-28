@@ -18,6 +18,7 @@ pub fn 치킨_main() -> std::io::Result<()> {
 
     let result_app = run_app(&mut terminal);
 
+    // restore terminal
     disable_raw_mode()?;
     stdout().execute(LeaveAlternateScreen)?;
     terminal.clear()?;
@@ -30,9 +31,10 @@ pub fn 치킨_main() -> std::io::Result<()> {
 fn run_app<B: Backend>(terminal: &mut Terminal<B>) -> std::io::Result<()> {
     // main loop가 들어갈 곳
     loop {
-        // 화면에 그리고
+        // 화면 그리기
         terminal.draw(ui::<B>)?;
 
+        // 입력 처리
         if let Ok(res) = input_handler::<B>() {
             if res.kind == KeyEventKind::Press && res.code == KeyCode::Char('ㅂ') {
                 return Ok(());
@@ -55,8 +57,10 @@ fn input_handler<B: Backend>() -> std::io::Result<KeyEvent> {
     return Err(std::io::Error::other("no input"));
 }
 
-fn ui<B: Backend>(frame: &mut ratatui::terminal::Frame) { // 화면에 그리고
+fn ui<B: Backend>(frame: &mut ratatui::terminal::Frame) { // 화면에 그리기
+    // 레이아웃 결정
     let size = frame.size();
+    
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .constraints([
@@ -65,7 +69,8 @@ fn ui<B: Backend>(frame: &mut ratatui::terminal::Frame) { // 화면에 그리고
             Constraint::Length(3)
         ])
         .split(size);
-
+    
+    // 구역의 속성 설정
     let upper_block = Block::default()
         .borders(Borders::NONE)
         .title(ratatui::widgets::block::Title::from("My chicken menu"));
