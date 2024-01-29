@@ -1,4 +1,5 @@
 mod chap;
+mod example;
 #[path = "치킨메뉴/mod.rs"]
 mod 치킨메뉴;
 
@@ -11,7 +12,7 @@ fn main() {
     println!(" {} ", chap::types::give_num(10, 30));
     let s1 = String::from("hello");
 
-    let end = 치킨메뉴::main();
+    let end = example::main();
 
     calc_len(&s1); // & 연산자 사용, 참조자
 
