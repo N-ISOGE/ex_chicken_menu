@@ -50,7 +50,10 @@ fn input_handler<B: prelude::Backend>() -> std::io::Result<event::KeyEvent> {
             return Ok(key);
         }
     }
-    return Err(std::io::Error::other("no input"));
+    return Err(std::io::Error::new(
+        std::io::ErrorKind::Other,
+        "no input",
+    ));
 }
 
 fn ui<B: prelude::Backend>(frame: &mut ratatui::terminal::Frame) {
