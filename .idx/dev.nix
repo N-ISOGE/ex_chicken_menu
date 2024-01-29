@@ -11,6 +11,8 @@
     pkgs.rustfmt
     pkgs.rust-analyzer
     pkgs.clippy
+    pkgs.pkg-config
+    pkgs.openssl
   ];
 
   # Sets environment variables in the workspace
