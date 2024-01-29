@@ -26,7 +26,7 @@ pub async fn main() -> Result<()>{
 
         println!("파일 이름은 {}",fname);
         let fname = tmp_dir.path().join(fname);
-        println!("저장된 장소는 {}",fname);
+        println!("저장된 장소는 {}",fname.display());
         File::create(fname)?
     };
     
