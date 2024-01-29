@@ -5,8 +5,9 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.corepack_21
     pkgs.rustup
+    pkgs.cargo
+    pkgs.rustc
     pkgs.rustfmt
     pkgs.rust-analyzer
     pkgs.clippy
