@@ -11,6 +11,4 @@ error-chain = "0.12.4"
 
 rand = "0.8.5"
 ratatui = { version = "0.26.1", features = ["all-widgets"] }
-reqwest = "0.11.23"
 tempfile = "3.9.0"
-tokio = { version = "1.35.1", features = ["full"] }

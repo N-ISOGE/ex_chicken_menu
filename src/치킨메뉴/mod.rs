@@ -3,6 +3,7 @@ use std::io::stdout;
 use crossterm::{event, terminal, ExecutableCommand};
 use ratatui::{layout, prelude, widgets};
 
+#[allow(unused)]
 pub fn main() -> std::io::Result<()> {
     // set up terminal
     stdout().execute(terminal::EnterAlternateScreen)?;
@@ -50,10 +51,7 @@ fn input_handler<B: prelude::Backend>() -> std::io::Result<event::KeyEvent> {
             return Ok(key);
         }
     }
-    return Err(std::io::Error::new(
-        std::io::ErrorKind::Other,
-        "no input",
-    ));
+    return Err(std::io::Error::new(std::io::ErrorKind::Other, "no input"));
 }
 
 fn ui<B: prelude::Backend>(frame: &mut ratatui::terminal::Frame) {

@@ -11,8 +11,6 @@
     pkgs.rustfmt
     pkgs.rust-analyzer
     pkgs.clippy
-    pkgs.pkg-config
-    pkgs.openssl
   ];
 
   # Sets environment variables in the workspace
@@ -20,11 +18,15 @@
 
   # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
   idx.extensions = [
-    "sugatoray.vscode-git-extension-pack"
+    # rust
     "rust-lang.rust-analyzer"
     "serayuzgur.crates"
     "vadimcn.vscode-lldb"
     "tamasfe.even-better-toml"
+    # nix
+    "arrterian.nix-env-selector"
+    # git
+    "sugatoray.vscode-git-extension-pack"
   ];
 
   # Enable previews and customize configuration
