@@ -27,6 +27,9 @@
     "arrterian.nix-env-selector"
     # git
     "sugatoray.vscode-git-extension-pack"
+    # comment, markdown
+    "DavidAnson.vscode-markdownlint"
+    "edwinhuish.better-comments-next"
   ];
 
   # Enable previews and customize configuration
