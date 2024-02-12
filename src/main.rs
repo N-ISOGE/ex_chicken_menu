@@ -3,7 +3,5 @@ mod chap_ownership;
 mod 치킨메뉴;
 
 fn main() {
-    println!("ownership 실행");
-
     chap_ownership::main();
 }
