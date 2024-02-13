@@ -11,7 +11,7 @@
 
 #[allow(unused_doc_comments)]
 pub fn main() {
-    println!("제어 흐름문 chap 다음 소유권 chap_ownership");
+    println!("제어 흐름문 the_conditionals -> 소유권 the_ownership");
 
     ///
     /// # `소유권`
