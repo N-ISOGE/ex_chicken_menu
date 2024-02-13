@@ -1,5 +1,6 @@
 extern crate rand;
 
+#[allow(dead_code)]
 pub fn give_num(one: i32, two: i32) -> i32 {
     // 지역변수 선언, 정의
     let result = one * two;
@@ -36,7 +37,7 @@ fn main() {
             Ok(num) => num,
             Err(_) => continue,
         };
-        let woo = 4;
+        let woo = give_num(2, 5);
         println!("Hello, world! {}", woo);
         {
             let wow2 = 10;

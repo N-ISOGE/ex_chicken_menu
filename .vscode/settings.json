@@ -1,4 +1,7 @@
 {
     "IDX.aI.enableInlineCompletion": true,
-    "nixEnvSelector.nixFile": "${workspaceFolder}/shell.nix"
+    "nixEnvSelector.nixFile": "${workspaceFolder}/shell.nix",
+    "rust-analyzer.linkedProjects": [
+        "./Cargo.toml"
+    ]
 }
