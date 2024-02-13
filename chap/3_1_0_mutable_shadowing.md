@@ -1,6 +1,6 @@
-## mutable, shadowing
+# mutable, shadowing
 
-### mutable
+## mutable
 
 - 공간의 값이 바꿀 수 있는 특성
 - 러스트에서는 기본적으로 정하지 않으면 imutable로 선언됨
@@ -8,7 +8,7 @@
   - 컴파일러에서 필요하지 않으면 mut를 제거하는 쪽으로 제안함
   - 안정성을 중요시 함
 
-### shadowing
+## shadowing
 
 - 같은 이름을 다시 쓰는 것을 shadowing이라고 부름
 - imutable 변수에 다른 값을 대입하는 것은 불가능하며 컴파일러가 경고를 줌
