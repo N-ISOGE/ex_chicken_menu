@@ -1,10 +1,14 @@
 ///
 /// # 변수와 가변성
 ///
+/// - [`러스트가 의도한 점`]
+/// - [`러스트에서 변수`]
+/// - [`상수`]
+/// - [`섀도잉`]
 ///
 #[allow(unused)]
 pub fn main() {
-    println!{"일반적인 프로그래밍 개념 -> 변수와 가변성 the_mutability_shadowing"}
+    println! {"일반적인 프로그래밍 개념 -> 변수와 가변성 the_mutability_shadowing"}
     // - [`러스트가 의도한 점`]
     // - [`러스트에서 변수`]
     immutable_variable();
@@ -95,19 +99,26 @@ const fn max_level() -> i64 {
 /// 하드코딩한 값을 상수로 두면 나중에 바꾸기 편하다.
 
 /// # 섀도잉
-/// 
+///
 /// 새 변수를 이전 변수명과 같은 이름으로 선언하는 것을 섀도잉이라 부름
 /// 이전에 선언했던 변수를 가려버림
 /// - 스스로를 가려버림
 /// - 변수 이름을 사용해도 대신 사용됨.
+///
+/// 이전의 변수에 접근이 불가능함이 안전하다?
+/// - 변수가 언제 변경되는지 제어하기가 쉽다
+/// - imutable 변수라면 다시 선언하기 전까지 값이 바뀌지 않는다.
+/// - 선언하는 지점만 고려하면 됨.
+/// - 선언하고 정의한 값이 내가 얻는 결과값임.
+///
 /// `let` 키워드, 이전 변수명을 사용해서 섀도잉을 할 수 있다.
-fn example_of_shadowing (){
+fn example_of_shadowing() {
     let x = 10;
     // 섀도잉 함.
     let x = x + 1;
     {
         // 섀도잉 함.
-        let x = x *2;
+        let x = x * 2;
         println!("이 안 스코프에서는 x 값은 {}", x);
     }
     println!("이 밖 스코프에서는 x 값은 {}", x);
@@ -122,5 +133,5 @@ fn same_name_but_different_type() {
     // 아래는 에러가 뜸
     // let mut wowow = "wowow";
     // wowow = wowow.len();
-    // println!("wowow 값 : {}", wowow);    
+    // println!("wowow 값 : {}", wowow);
 }
