@@ -1,20 +1,20 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  rpkgs = pkgs.extend (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz"));
+in
+{
 
   # Which nixpkgs channel to use.
   channel = "unstable"; # or "stable-23.05"
 
   # Use https://search.nixos.org/packages to find packages
-  packages = [
-    pkgs.rustup
-    pkgs.cargo
-    pkgs.rustc
-    pkgs.rustfmt
-    pkgs.rust-analyzer
-    pkgs.clippy
+  packages = with rpkgs; [
+    (rust-bin.fromRustupToolchainFile ../rust-toolchain.toml)
+    stdenv.cc
   ];
 
   # Sets environment variables in the workspace
-  env = {};
+  env = { };
 
   # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
   idx.extensions = [
@@ -35,5 +35,5 @@
   # Enable previews and customize configuration
   idx.previews = {
     enable = true;
-   };
+  };
 }
