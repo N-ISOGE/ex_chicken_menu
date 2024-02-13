@@ -5,5 +5,5 @@ pub mod ths_types;
 pub mod the_ownership;
 
 pub fn main() {
-    the_ownership::main();
+    the_mutability_shadowing::main();
 }
