@@ -12,7 +12,7 @@
 #[allow(unused)]
 pub fn main() {
     // # 개요
-    println!("제어 흐름문 the_conditionals -> 소유권 the_ownership");
+    println!("변수와 가변성 the_mutability_shadowing -> 소유권 the_ownership");
     // - [`소유권`]
     // - [`소유권 규칙`]
     // - [`변수의 스코프`]
@@ -30,7 +30,7 @@ pub fn main() {
     return_value_and_ownership();
 
     // 함수에 값을 전달하되 소유권을 전달하지 않는 방법이 있나?
-    println!("소유권 chap_ownershuip 다음 참조자 chap_referance");
+    println!("소유권 chap_ownershuip -> 참조자 chap_referance");
 }
 
 /// ## `소유권`
