@@ -6,6 +6,7 @@
 /// - [`상수`]
 /// - [`섀도잉`]
 ///
+#[allow(unused)]
 pub fn main() {
     println! {"배경지식 the_backgroud_knowledge -> 변수와 가변성 the_mutability_shadowing"}
     // - [`러스트가 의도한 점`]
