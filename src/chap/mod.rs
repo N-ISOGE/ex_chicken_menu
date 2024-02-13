@@ -10,5 +10,5 @@ pub mod the_ownership;
 /// utf-8를 기본적으로 쓰는 거 좋다
 /// 
 pub fn main() {
-    the_ownership::main();
+    the_mutability_shadowing::main();
 }
