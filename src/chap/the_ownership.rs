@@ -9,6 +9,7 @@
 /// - [`소유권과 함수`]
 /// - [`반환값과 스코프`]
 /// 
+#[allow(unused)]
 pub fn main() {
     // # 개요
     println!("제어 흐름문 the_conditionals -> 소유권 the_ownership");

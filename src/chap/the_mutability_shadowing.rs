@@ -6,7 +6,6 @@
 /// - [`상수`]
 /// - [`섀도잉`]
 ///
-// #[allow(unused)]
 pub fn main() {
     println! {"일반적인 프로그래밍 개념 -> 변수와 가변성 the_mutability_shadowing"}
     // - [`러스트가 의도한 점`]
