@@ -7,7 +7,7 @@
 /// - [`섀도잉`]
 ///
 pub fn main() {
-    println! {"일반적인 프로그래밍 개념 -> 변수와 가변성 the_mutability_shadowing"}
+    println! {"일반적인 프로그래밍 개념 -> 변수와 가변성 the_mutability_shadowing"};
     // - [`러스트가 의도한 점`]
     // - [`러스트에서 변수`]
     immutable_variable();
