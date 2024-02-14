@@ -114,9 +114,9 @@ fn range_of_reference() {
 /// 댕글링 참조 예시
 /// dangle 반환값이 &String이면 다음과 같은 에러가 뜸
 /// 
-/// > missing lifetime specifier
-/// > this function's return type contains a borrowed value, 
-/// > but there is no value for it to be borrowed
+/// > missing lifetime specifier  
+/// > this function's return type contains a borrowed value,  
+/// > but there is no value for it to be borrowed  
 /// >  from rustc
 /// - 빌린 것을 반환 하는데 반환 받은 빌린 것에 값이 없음
 /// 
