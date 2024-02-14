@@ -7,7 +7,7 @@
 /// - [`섀도잉`]
 ///
 pub fn main() {
-    println! {"일반적인 프로그래밍 개념 -> 변수와 가변성 the_mutability_shadowing"};
+    println! {"배경지식 the_backgroud_knowledge -> 변수와 가변성 the_mutability_shadowing"}
     // - [`러스트가 의도한 점`]
     // - [`러스트에서 변수`]
     immutable_variable();
@@ -17,6 +17,8 @@ pub fn main() {
     // - [`섀도잉`]
     example_of_shadowing();
     same_name_but_different_type();
+
+    println! {"변수와 가변성 the_mutability_shadowing -> 소유권 the_ownership"};
 }
 
 /// ## 러스트가 의도한 점
