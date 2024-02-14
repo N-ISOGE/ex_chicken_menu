@@ -1,6 +1,15 @@
-///
-/// # 배경지식
-///
+//!
+//! # 배경지식
+//!
+//! - type
+//!     - [`various_types`]
+//! - function, statements, expressions
+//!     - [`function_name_is_snake_case`]
+//!     - [`statements_expressions`]
+//! - comment
+//! - control flow
+//!     - [`control_flow`]
+//! 
 pub fn main() {
     println!("시작 -> 배경지식 the_backgroud_knowledge");
     // - [`type`]
@@ -10,6 +19,7 @@ pub fn main() {
     statements_expressions();
     // - [`comment`]
     // - [`control flow`]
+    control_flow();
     println!("배경지식 the_backgroud_knowledge -> 변수와 가변성 the_mutability_shadowing ")
 }
 
@@ -65,5 +75,28 @@ fn statements_expressions() {
 /// - 문서화 주석이라는 것이 있다, 문서화 주석에서 문서화 주석
 
 /// ## control flow
-/// - 구문, 표현식 둘 다 사용가능
+/// - 구문, 표현식으로 둘 다 사용가능
 /// - 반복문 loop, while, for
+///
+/// - 조건문에서 boolean 타입으로만 조건 검사 허용
+///     - 다른 타입을 캐스팅해주지 않음
+/// - loop 라벨 존재, 흐름을 정할 때 특정한 지점으로 보낼 수 있다.
+fn control_flow() {
+    let is_this_true = false;
+
+    let a_never_mind = if is_this_true {
+        "is_this_true is true"
+    } else {
+        "is_this_true is false"
+    };
+
+    let mut index = 0;
+    loop {
+        println! {"{} {}",a_never_mind, index};
+        if index < 5 {
+            index += 1;
+        } else {
+            break;
+        }
+    }
+}
