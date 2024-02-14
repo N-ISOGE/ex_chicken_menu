@@ -11,6 +11,7 @@
 //! - control flow
 //!     - [`control_flow`]
 //!
+#[allow(unused)]
 pub fn main() {
     println!("시작 -> 배경지식 the_backgroud_knowledge");
     // - [`type`]
