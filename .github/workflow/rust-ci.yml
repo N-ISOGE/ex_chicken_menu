@@ -1,6 +1,6 @@
 name: Rust CI
 
-on: [ "push", "pull request" ]
+on: [ push, pull_request ]
 
 env:
   CARGO_TERM_COLOR: always
@@ -10,11 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - name: Install cargo0audit
         run: cargo install cargo-audit
+        
       - run: cargo build --verbose
+      
       - run: cargo test --verbose
+      
       - name: Clippy
         run: cargo clippy --verbose -- -D warnings
+        
       - name: Audit
         run: cargo audit
