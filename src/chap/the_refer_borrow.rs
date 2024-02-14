@@ -55,7 +55,7 @@ fn reference_example() {
 /// 버려지지 않는다.
 /// 이렇게 사용하는 것을 대여라고 함.
 // String 대신 &String 사용
-fn calculate_length(s: &String) -> usize {
+fn calculate_length(s: &str) -> usize {
     // 참조자도 기본적으로 불변성을 띔
     // s.push_str("!");
     s.len()
