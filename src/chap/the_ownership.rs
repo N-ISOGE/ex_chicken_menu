@@ -1,14 +1,21 @@
-///
-/// # 소유권
-///
-/// - [`소유권`]
-/// - [`소유권 규칙`]
-/// - [`변수의 스코프`]
-/// - [`String 타입으로 예시를 듬`]
-/// - [`이어지는 메모리와 할당`]
-/// - [`소유권과 함수`]
-/// - [`반환값과 스코프`]
-///
+//!
+//! # 소유권
+//!
+//! - 소유권
+//! - 소유권 규칙
+//! - 변수의 스코프
+//! - String 타입으로 예시를 듬
+//!     - [`using_heap`]
+//! - 이어지는 메모리와 할당
+//!     - [`scope_based_memory_management`]
+//!     - [`differance_stack_heap`]
+//!     - [`move_ownership`]
+//!     - [`use_clone`]
+//! - 소유권과 함수
+//!     - [`give_value_to_function`]
+//! - 반환값과 스코프
+//!     - [`return_value_and_ownership`]
+//!
 #[allow(unused)]
 pub fn main() {
     // # 개요
