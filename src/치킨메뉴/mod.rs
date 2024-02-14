@@ -43,7 +43,7 @@ fn run_app<B: prelude::Backend>(terminal: &mut prelude::Terminal<B>) -> std::io:
 // enum HandlerError {
 //     NoInput
 // }
-
+#[allow(clippy::extra_unused_type_parameters)]
 fn input_handler<B: prelude::Backend>() -> std::io::Result<event::KeyEvent> {
     // 이벤트를 처리함
     if crossterm::event::poll(std::time::Duration::from_millis(16))? {
@@ -51,9 +51,10 @@ fn input_handler<B: prelude::Backend>() -> std::io::Result<event::KeyEvent> {
             return Ok(key);
         }
     }
-    return Err(std::io::Error::new(std::io::ErrorKind::Other, "no input"));
+    Err(std::io::Error::new(std::io::ErrorKind::Other, "no input"))
 }
 
+#[allow(clippy::extra_unused_type_parameters)]
 fn ui<B: prelude::Backend>(frame: &mut ratatui::terminal::Frame) {
     // 화면에 그리기
     // 레이아웃 결정
