@@ -54,7 +54,7 @@ pub fn main() {
 /// - String 타입 특징으로 힙을 사용함을 꼽음
 ///
 fn using_heap() {
-    fn calc_len(s: &String) -> usize {
+    fn calc_len(s: &str) -> usize {
         // &String : String에 대한 참조자
         s.len()
     }
