@@ -2,18 +2,20 @@
 //! # 배경지식
 //!
 //! - type
-//!     - [`various_types`]
+//!     - [`various_scala_types`]
+//!     - [`various_str_complex_types`]
 //! - function, statements, expressions
 //!     - [`function_name_is_snake_case`]
 //!     - [`statements_expressions`]
 //! - comment
 //! - control flow
 //!     - [`control_flow`]
-//! 
+//!
 pub fn main() {
     println!("시작 -> 배경지식 the_backgroud_knowledge");
     // - [`type`]
-    various_types();
+    various_scala_types();
+    various_str_complex_types();
     // - [`function, statements, expressions`]
     function_name_is_snake_case();
     statements_expressions();
@@ -35,7 +37,7 @@ pub fn main() {
 /// - 부동 소수점 f32, f64
 ///     - f64가 주로 사용됨
 /// - 문자형 char, 작은 따옴표 사용. 문자열과 다름
-fn various_types() {
+fn various_scala_types() {
     let a_ingter: i64 = -123;
     println!("정수 i64 {} {:0x} ", a_ingter, 0xFFDF);
 
@@ -44,6 +46,34 @@ fn various_types() {
 
     let a_char: char = '와';
     println!("문자형 char {}", a_char);
+}
+
+/// ### 문자열 타입
+///
+/// - &str
+///     - 문자열을 참조
+/// - String
+///     - 표준 라이브러리에서 지원하는 타입
+///
+/// ### 복합 타입
+///
+/// - 다양한 값을 하나의 타입으로 묶음
+/// - 튜플, 배열
+/// - 튜플은 다양한 타입을 묶는 것, 배열을 같은 타입인 다양한 값을 묶는 것
+///
+
+fn various_str_complex_types() {
+    let welcome_str: &str = "안녕하세요";
+    let welcome_string /* :String */ = String::from("String");
+    println!("{} {}", welcome_str, welcome_string);
+
+    let a_tuple = (1, 2.0, "ddd");
+    println!("{:?}", a_tuple);
+
+    let a_array = [2, 3, 4, 5, 6];
+    for number in a_array {
+        println!("array {}", number)
+    }
 }
 
 /// ## function, statements, expressions
