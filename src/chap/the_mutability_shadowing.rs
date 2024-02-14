@@ -6,14 +6,13 @@
 /// - [`상수`]
 /// - [`섀도잉`]
 ///
-#[allow(unused)]
 pub fn main() {
     println! {"배경지식 the_backgroud_knowledge -> 변수와 가변성 the_mutability_shadowing"}
     // - [`러스트가 의도한 점`]
     // - [`러스트에서 변수`]
     immutable_variable();
     mutable_variable();
-    // - [`상수`]
+    // - 상수
     using_constant();
     // - [`섀도잉`]
     example_of_shadowing();
@@ -43,20 +42,21 @@ fn immutable_variable() {
 }
 
 /// 컴파일러가 오류를 출력함
-/// error[E0384]: cannot assign twice to immutable variable `immutable`
-/// --> src/chap/the_mutability_shadowing.rs:29:5
-///    |
-/// 26 |     let immutable = 5;
-///    |         ---------
-///    |         |
-///    |         first assignment to `immutable`
-///    |         help: consider making this binding mutable: `mut immutable`
-/// ...
-/// 29 |     immutable = 6;
-///    |     ^^^^^^^^^^^^^ cannot assign twice to immutable variable
 ///
-/// For more information about this error, try `rustc --explain E0384`.
-///
+/// error[E0384]: cannot assign twice to immutable variable `immutable`  
+/// --> src/chap/the_mutability_shadowing.rs:29:5  
+///    |  
+/// 26 |     let immutable = 5;  
+///    |         ---------  
+///    |         |  
+///    |         first assignment to `immutable`  
+///    |         help: consider making this binding mutable: `mut immutable`  
+/// ...  
+/// 29 |     immutable = 6;  
+///    |     ^^^^^^^^^^^^^ cannot assign twice to immutable variable  
+///  
+/// For more information about this error, try `rustc --explain E0384`.  
+///  
 /// cannot assign twice to immutable variable `immutable`
 /// -> 불변 변수 x에 두번 할당 불가
 /// - 컴파일러가 경고를 해줌
