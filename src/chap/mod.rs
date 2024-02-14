@@ -1,7 +1,7 @@
 // 3. 배경지식
 pub mod the_background_knowledge;
 pub mod the_mutability_shadowing;
-pub mod ths_types;
+pub mod number_game;
 // 4. 소유권
 pub mod the_ownership;
 

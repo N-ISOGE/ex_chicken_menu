@@ -8,7 +8,7 @@
 /// - [`이어지는 메모리와 할당`]
 /// - [`소유권과 함수`]
 /// - [`반환값과 스코프`]
-/// 
+///
 #[allow(unused)]
 pub fn main() {
     // # 개요
@@ -173,7 +173,7 @@ fn makes_copy(some_integer: i32) {
 
 /// # `반환 값과 스코프`
 /// 값을 반환하는 과정에서의 소유권 취급
-/// 
+///
 fn return_value_and_ownership() {
     // `gives_ownership()`이 반환한 값을 `s1`에 대입
     let s1 = gives_ownership();
@@ -189,6 +189,7 @@ fn return_value_and_ownership() {
 } // s1, s3는 스코프 밖으로 벗어나면서 `drop` 호출, 메모리 해제
   // s2는 이동되어 유효하지 않아 영향이 없음
 
+#[allow(clippy::let_and_return)]
 fn gives_ownership() -> String {
     // 반환 값을 호출한 곳으로 이동시킴.
     // some_string이 생성됨
