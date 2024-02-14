@@ -18,7 +18,7 @@ pub fn give_num(one: i32, two: i32) -> i32 {
 //
 //
 
-#[test]
+#[allow(unused)]
 fn main() {
     use rand::Rng;
     use std::cmp::Ordering;
