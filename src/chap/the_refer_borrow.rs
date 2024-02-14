@@ -65,6 +65,7 @@ fn calculate_length(s: &String) -> usize {
 ///
 /// `mut` 키워드를 추가하면 참조자가 가리키는 값을 변경할 수 있다.
 /// 제약사항으로 어떤 값에 대한 가변 참조자가 있으면 참조자를 생성할 수 없다.
+/// - 제한사항으로 특정한 스코프 내 특정한 데이터 조각에 대한 가변 참조자를 `하나만` 만들 수 있다
 ///
 fn mutable_reference_example() {
     let mut s = String::from("바꾸기");
