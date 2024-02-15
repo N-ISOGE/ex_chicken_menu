@@ -11,6 +11,9 @@ in
   packages = with rpkgs; [
     (rust-bin.fromRustupToolchainFile ../rust-toolchain.toml)
     stdenv.cc
+    pkgs.gnupg
+    pkgs.pinentry-curses
+    pkgs.coreutils-full
   ];
 
   # Sets environment variables in the workspace

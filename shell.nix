@@ -6,5 +6,9 @@
     rustfmt
     rust-analyzer
     clippy
+    gnupg
+    pinentry-curses
+    coreutils-full
+    git
   ];
 }
