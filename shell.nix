@@ -6,5 +6,12 @@
     rustfmt
     rust-analyzer
     clippy
+    libiconv
+    pkg-config
+    openssl
+    gnupg
+    pinentry-curses
+    coreutils-full
+    git
   ];
 }

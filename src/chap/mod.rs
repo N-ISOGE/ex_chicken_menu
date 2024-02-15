@@ -52,7 +52,15 @@
 //! #### 코드 구조
 //! Rc, Arc
 //! 
-
+//!
+//! ### 의존성
+//! - rust-update
+//!     - libiconv
+//!     - pkg-config
+//!     - openssl
+//! 
+//! 
+//! 
 
 // 3. 배경지식
 pub mod the_background_knowledge;
