@@ -11,6 +11,9 @@ in
   packages = with rpkgs; [
     (rust-bin.fromRustupToolchainFile ../rust-toolchain.toml)
     stdenv.cc
+    pkgs.libiconv
+    pkgs.pkg-config
+    pkgs.openssl
     pkgs.gnupg
     pkgs.pinentry-curses
     pkgs.coreutils-full
