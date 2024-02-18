@@ -69,10 +69,11 @@ pub mod the_mutability_shadowing;
 // 4. 소유권
 pub mod the_ownership;
 pub mod the_refer_borrow;
+pub mod the_slice;
 
 ///
 /// # rust, 러스트
 ///
 pub fn main() {
-    the_refer_borrow::main();
+    the_slice::main();
 }
