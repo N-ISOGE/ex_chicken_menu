@@ -24,7 +24,6 @@ pub mod the_slice;
 
 // 5. 구조체
 pub mod the_defining_structs;
-pub mod the_example_of_using_structs;
 
 // e-0. 실수
 pub mod the_misstakes_by_newbies;
@@ -32,5 +31,5 @@ pub mod the_misstakes_by_newbies;
 /// # rust, 러스트
 ///
 pub fn main() {
-    the_example_of_using_structs::main();
+    the_defining_structs::main();
 }
