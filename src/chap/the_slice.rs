@@ -7,6 +7,8 @@
 //! - 슬라이스 관련 상호작용
 //!     - [`slice_related_action`]
 //!
+//! 
+#[allow(unused)]
 pub fn main() {
     println!("참조와 대여 the_refer_borrow -> 슬라이스 the_slice");
     // - 슬라이스?
