@@ -3,7 +3,7 @@
 //! 
 
 #[allow(unused)]
-fn main(){
+pub fn main(){
     println!("구조체를 사용한 예시 the_example_of_using_structs -> 메서드 문법 the_method_syntax");
 
     method_area_of_ellipse();
