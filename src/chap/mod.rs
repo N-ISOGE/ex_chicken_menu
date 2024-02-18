@@ -11,20 +11,22 @@
 //!     - openssl 
 //! 
 
+
 // 3. 배경지식
+pub mod number_game;
 pub mod the_background_knowledge;
 pub mod the_mutability_shadowing;
-pub mod number_game;
+
 // 4. 소유권
 pub mod the_ownership;
 pub mod the_refer_borrow;
+pub mod the_slice;
 
 // e-0. 실수
 pub mod the_misstakes_by_newbies;
 
-/// 
 /// # rust, 러스트
-/// 
+///
 pub fn main() {
     the_misstakes_by_newbies::main();
 }
