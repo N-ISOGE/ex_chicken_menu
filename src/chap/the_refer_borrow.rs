@@ -14,6 +14,7 @@
 //! - 댕글링 참조
 //!     - [`make_dangling_reference`]
 //!
+#[allow(unused)]
 pub fn main() {
     println!("소유권 the_ownership -> 참조와 대여 the_refer_borrow");
     // - 참조자
