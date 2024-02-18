@@ -22,11 +22,14 @@ pub mod the_ownership;
 pub mod the_refer_borrow;
 pub mod the_slice;
 
+// 5. 구조체
+pub mod the_defining_structs;
+
 // e-0. 실수
 pub mod the_misstakes_by_newbies;
 
 /// # rust, 러스트
 ///
 pub fn main() {
-    the_misstakes_by_newbies::main();
+    the_defining_structs::main();
 }
