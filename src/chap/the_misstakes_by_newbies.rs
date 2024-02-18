@@ -3,7 +3,9 @@
 //! [참조](https://www.youtube.com/watch?v=PbR4ECFIckg)
 //!
 //! - 필요한 참조형식으로 쓰기
+//!     - [`unnecessary_indirection`]
 //! - 슬라이스 인덱싱을 적당하게 사용하기
+//!     - [`properly_use_slice`]
 //! - sentinel value, 초계값, 끝값?
 //! - Enum 쓰기
 //! - 에러 핸들링 하기
@@ -13,27 +15,30 @@
 //! - 코드 구조
 //!
 
+
 #[allow(unused)]
 pub fn main() {
     todo_organizing();
     // - 필요한 참조형식으로 쓰기
     unnecessary_indirection();
+    // - 슬라이스 인덱싱을 적당하게 사용하기
+    properly_use_slice();
 }
 
 ///
 /// ## 필요한 참조형식으로 쓰기
-/// 
+///
 /// > &str로 넘겨서 사용할 수 있는 &String 매개변수라면
 /// > &str으로 매개변수의 타입을 선언하자.
 /// > 다른 타입도 유연하게 받을 수 있는 함수가 된다.
-/// 
+///
 fn unnecessary_indirection() {
-    fn before_print_fn(s:&String){
+    fn before_print_fn(s: &String) {
         println!("~ s");
         println!("{s}");
         println!("! s");
     }
-    fn after_print_fn(s:&str){
+    fn after_print_fn(s: &str) {
         println!("~ s");
         println!("{s}");
         println!("! s");
@@ -48,13 +53,51 @@ fn unnecessary_indirection() {
     after_print_fn(a_str);
 }
 
-
-
+///
 /// ## 슬라이스 인덱싱을 적당하게 사용하기
 ///
 /// 쉽지만 쓰다가 문제생김 (범위를 벗어난 접근)
 /// map으로 보내서 알아서 범위를 정하게 함
 ///
+fn properly_use_slice() {
+    #[derive(Debug, Copy, Clone, PartialEq)]
+    struct Coordinate {
+        x: i32,
+        y: i32,
+    }
+
+    impl std::ops::Sub for Coordinate {
+        type Output = Coordinate;
+        fn sub(self, rhs: Coordinate) -> Self::Output {
+            Coordinate {
+                x: self.x - rhs.x,
+                y: self.y - rhs.y,
+            }
+        }
+    }
+
+    // map 활용, 범위를 컴파일러가 알아서 파악해줌.
+    let points: Vec<Coordinate> = (1..11).map(|i| Coordinate { x: i, y: i * i }).collect();
+    let mut differences = Vec::new();
+
+    // 슬라이스 인덱싱, out of index error 볼 수 있음.
+    for i in 1..points.len() {
+        let prev = points[i - 1];
+        let cur = points[i];
+        differences.push(cur - prev);
+    }
+
+    // map 활용인데 points를 다 구현안해서 안됨.
+    // let inhenced_differences: Vec<_> = points.map(|[prev, cur]| cur - prev).collect();
+
+    for point in points {
+        println!("x: {}, y: {}", point.x, point.y);
+    }
+    for diff in differences {
+        println!("diff x: {}, diff y: {}", diff.x, diff.y);
+    }
+}
+
 /// ## sentinel value, 초계값, 끝값?
 ///
 /// 함수 끝날 때, 특정한 조건에서 특정한 값을 쓰는 일이 있다.
@@ -93,5 +136,5 @@ fn unnecessary_indirection() {
 /// Rc, Arc
 ///
 fn todo_organizing() {
-    todo!("정리 할 것");
+    // todo!("정리 할 것");
 }
