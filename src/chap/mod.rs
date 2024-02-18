@@ -26,5 +26,5 @@ pub mod the_misstakes_by_newbies;
 /// # rust, 러스트
 /// 
 pub fn main() {
-    the_refer_borrow::main();
+    the_misstakes_by_newbies::main();
 }
