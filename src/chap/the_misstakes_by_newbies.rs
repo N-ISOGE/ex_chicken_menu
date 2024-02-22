@@ -15,7 +15,6 @@
 //! - 코드 구조
 //!
 
-
 #[allow(unused)]
 pub fn main() {
     todo_organizing();

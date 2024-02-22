@@ -8,9 +8,8 @@
 //! - rust-update
 //!     - libiconv
 //!     - pkg-config
-//!     - openssl 
-//! 
-
+//!     - openssl
+//!
 
 // 3. 배경지식
 pub mod number_game;
