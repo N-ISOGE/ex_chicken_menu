@@ -1,10 +1,10 @@
 //!
 //! # 참조와 대여
-//! 
+//!
 //! ## 요약
 //! - 스코프에서 가변 참조자 하나, 혹은 여러 불변 참조자 유효 가능
 //! - 참조자는 항상 유효해야 함? 가르키는 대상이 유효?
-//! 
+//!
 //! ## 개요
 //! - 참조자
 //!     - [`reference_example`]
@@ -32,7 +32,7 @@ pub fn main() {
 /// 요약
 /// - 스코프에서 가변 참조자 하나, 혹은 여러 불변 참조자 유효 가능
 /// - 참조자는 항상 유효해야 함? 가르키는 대상이 유효?
-/// 
+///
 /// 함수의 매개변수로 변수를 넘기고 반환값으로 변수를 받는 대신,
 /// **값의 소유권을 넘기는 대신**
 /// 참조자를 전달할 수 있다.
@@ -107,28 +107,28 @@ fn range_of_reference() {
 }
 
 /// ## 댕글링 참조
-/// 
+///
 /// 다른 곳에서 해제가 됐는지 모르는 포인터
 /// 러스트에서는 참조자를 만드면 해당 참조자가 스코프를 벗어나기 전에
 /// 데이터가 스코프를 벗어나는지 확인하여 댕글링 참조가 생성되는 지 검사함
-/// 
+///
 /// 댕글링 참조 예시
 /// dangle 반환값이 &String이면 다음과 같은 에러가 뜸
-/// 
+///
 /// > missing lifetime specifier  
 /// > this function's return type contains a borrowed value,  
 /// > but there is no value for it to be borrowed  
 /// >  from rustc
 /// - 빌린 것을 반환 하는데 반환 받은 빌린 것에 값이 없음
-/// 
+///
 fn make_dangling_reference() {
     let reference_to_nothing = dangle();
-    println!("{}",reference_to_nothing)
+    println!("{}", reference_to_nothing)
 }
 
 #[allow(clippy::let_and_return)]
-fn dangle() -> /*&*/String {
+fn dangle() -> String {
+    // 반환 타입을 &String -> String
     let s = String::from("댕글링이면 안 나옴");
-    /*&*/s
+    s
 } // 여기서 이동하지 않으면 s가 소멸함, &s는 소멸한 값 가르킴
- 

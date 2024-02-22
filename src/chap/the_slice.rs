@@ -7,7 +7,7 @@
 //! - 슬라이스 관련 상호작용
 //!     - [`slice_related_action`]
 //!
-//! 
+//!
 #[allow(unused)]
 pub fn main() {
     println!("참조와 대여 the_refer_borrow -> 슬라이스 the_slice");
@@ -96,7 +96,7 @@ fn using_string_slice() {
 ///
 /// - 문자열 리터럴 -> 쓸 때보면 참조자, 불변이면서 슬라이스이기도 함.
 /// - 매개변수, 반환값도 일반적인 슬라이스를 사용하게 하면 사용하기 쉽다.
-/// 
+///
 fn slice_related_action() {
     #[allow(unused_variables)]
     let s = "이건 불변 참조자인 문자열 슬라이스입니다.";
