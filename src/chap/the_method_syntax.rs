@@ -80,11 +80,12 @@ fn method_area_of_ellipse() {
 /// 러스트에서는 자동 참조 및 역참조로 . 연산자를 쓰면 메서드에 맞체 &, &mut, *을 추가함.
 ///
 
+#[allow(clippy::needless_borrow)]
 fn auto_refer_and_derefer() {
     let a_ellipse = Ellipse { a: 50.0, b: 30.0 };
 
     // 동일한 연산
-    #[allow(clippy::needless_borrow)]
+    
     println!("타원의 넓이: {:.4}", (&a_ellipse).area());
     println!(" 넓이 출력 : {:.4}", a_ellipse.area());
 }
