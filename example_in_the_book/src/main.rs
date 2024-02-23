@@ -44,7 +44,7 @@ pub mod the_slice;
 ///     - [`the_method_syntax`]
 ///
 ///
-/// ex. 
+/// ex.
 /// 1. 실수  
 ///     - [`the_misstakes_by_newbies`]
 ///

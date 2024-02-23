@@ -1,4 +1,4 @@
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [workspace]
-members = ["example_in_the_book", "find_module_in_crate", "playground", "치킨메뉴"]
+members = ["example_in_the_book", "module_breaks", "playground", "치킨메뉴"]
 resolver = "2"
