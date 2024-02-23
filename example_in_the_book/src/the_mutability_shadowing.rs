@@ -1,10 +1,15 @@
 ///
 /// # 변수와 가변성
 ///
-/// - [`러스트가 의도한 점`]
-/// - [`러스트에서 변수`]
-/// - [`상수`]
-/// - [`섀도잉`]
+/// - 러스트가 의도한 점
+/// - 러스트에서 변수
+///     - [`immutable_variable`]
+///     - [`mutable_variable`]
+/// - 상수
+///     - [`using_constant`]
+/// - 섀도잉
+///     - [`example_of_shadowing`]
+///     - [`same_name_but_different_type`]
 ///
 #[allow(unused)]
 pub fn main() {
@@ -22,6 +27,7 @@ pub fn main() {
     println! {"변수와 가변성 the_mutability_shadowing -> 소유권 the_ownership"};
 }
 
+///
 /// ## 러스트가 의도한 점
 /// - 러스트에서 변수는 기본적으로 불변임
 ///     - 안정성과 쉬운 동시성을 취하도록 유도
@@ -30,10 +36,10 @@ pub fn main() {
 ///     - 불변성을 권하는 이유
 ///     - 가변성을 사용하는 상황
 ///
-
 /// ## 러스트에서 변수
 /// ### 불변성
 /// 변수가 불변일 때, 값을 변경하려 시도하는 예시
+///
 fn immutable_variable() {
     let immutable = 5;
     println!("immutable 값 : {}", immutable);

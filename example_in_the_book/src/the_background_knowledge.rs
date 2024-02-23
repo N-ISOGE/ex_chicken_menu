@@ -12,7 +12,6 @@
 //!     - [`control_flow`]
 //!
 
-
 use rand::random;
 
 #[allow(unused)]
