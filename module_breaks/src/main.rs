@@ -1,5 +1,5 @@
-use bevy::math;
-use bevy::prelude::*;
+use bevy::{math, sprite, prelude::*};
+
 
 fn main() {
     App::new()
@@ -25,15 +25,39 @@ const BALL_SPEED: f32 = 500.0;
 const BALL_STARTING_POSITION: Vec3 = Vec3::new(0.0, -50.0, 1.);
 const BALL_INITIAL_DIRECTION: Vec2 = Vec2::new(0.5, -0.5);
 
+// WALL
+const WALL_LEFT: f32 = -450.;
+const WALL_RIGHT: f32 = 450.;
+const WALL_TOP: f32 = 300.;
+const WALL_BOTTOM: f32 = -300.;
+
+const WALL_THICKNESS: f32 = 10.;
+const WALL_BLOCK_WIDTH: f32 = WALL_RIGHT - WALL_LEFT;
+const WALL_BLOCK_HEIGHT: f32 = WALL_TOP - WALL_BOTTOM;
+const WALL_COLOR: Color = Color::rgb(0.8, 0.8, 0.8);
+
 
 #[derive(Component)]
 struct Paddle;
 
 #[derive(Component)]
-struct Ball;
+struct Ball {
+    size: Vec2,
+}
 
 #[derive(Component, Deref, DerefMut)]
 struct Velocity(Vec2);
+
+#[derive(Component)]
+struct Collider {
+    size: Vec2,
+}
+
+#[derive(Bundle)]
+struct WallBundle {
+    sprite_bundle: SpriteBundle,
+    collider: Collider,
+}
 
 fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     // camera
@@ -53,7 +77,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
             },
             ..default()
         },
-        Paddle
+        Paddle,
     ));
 
     // ball
@@ -77,9 +101,11 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     ));
 }
 
-fn move_paddle(input: Res<ButtonInput<KeyCode>>,
-               time_step: Res<Time<Fixed>>,
-               mut query: Query<&mut Transform, With<Paddle>>, ) {
+fn move_paddle(
+    input: Res<ButtonInput<KeyCode>>,
+    time_step: Res<Time<Fixed>>,
+    mut query: Query<&mut Transform, With<Paddle>>,
+) {
     let mut paddle_transform = query.single_mut();
 
     let mut direction = 0.0;
@@ -90,7 +116,11 @@ fn move_paddle(input: Res<ButtonInput<KeyCode>>,
         direction += 1.0;
     }
 
-    let new_x = paddle_transform.translation.x + direction * PADDLE_SPEED * time_step.delta_seconds();
+    let new_x =
+        paddle_transform.translation.x + direction * PADDLE_SPEED * time_step.delta_seconds();
+
+    let new_x = new_x.min(WALL_RIGHT - (WALL_THICKNESS + PADDLE_SIZE.x) * 0.5);
+    let new_x = new_x.max(WALL_LEFT + (WALL_THICKNESS + PADDLE_SIZE.x) * 0.5);
 
     paddle_transform.translation.x = new_x;
 }
