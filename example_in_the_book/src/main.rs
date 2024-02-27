@@ -29,5 +29,5 @@ mod ex_tips;
 ///     - [`ex_tips`]
 ///
 fn main() {
-    ex_0_video::main();
+    rust_books::main();
 }
