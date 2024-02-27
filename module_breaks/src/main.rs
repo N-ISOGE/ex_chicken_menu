@@ -98,9 +98,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
             texture: ball_tex,
             ..default()
         },
-        Ball {
-            size: Circle::new(BALL_DIAMETER / 2.),
-        },
+        Ball,
         Velocity(BALL_SPEED * BALL_INITIAL_DIRECTION),
     ));
 
