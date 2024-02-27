@@ -47,9 +47,7 @@ const WALL_COLOR: Color = Color::rgb(0.8, 0.8, 0.8);
 struct Paddle;
 
 #[derive(Component)]
-struct Ball {
-    size: Circle,
-}
+struct Ball;
 
 #[derive(Component, Deref, DerefMut)]
 struct Velocity(Vec2);
