@@ -88,7 +88,10 @@ fn example_of_field_init_shorthand() {
     };
     // so_wow_dog값을 이동시켜 초기화하기 때문에 사용 불가
     // println!("{}",so_wow_dog.so);
-    println!("{} {} {}", not_so_wow_dog.so, not_so_wow_dog.wow, not_so_wow_dog.many);
+    println!(
+        "{} {} {}",
+        not_so_wow_dog.so, not_so_wow_dog.wow, not_so_wow_dog.many
+    );
 }
 
 ///

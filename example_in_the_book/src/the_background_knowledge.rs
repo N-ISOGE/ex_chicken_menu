@@ -11,6 +11,9 @@
 //! - control flow
 //!     - [`control_flow`]
 //!
+
+use rand::random;
+
 #[allow(unused)]
 pub fn main() {
     println!("시작 -> 배경지식 the_backgroud_knowledge");
@@ -113,7 +116,7 @@ fn statements_expressions() {
 ///     - 다른 타입을 캐스팅해주지 않음
 /// - loop 라벨 존재, 흐름을 정할 때 특정한 지점으로 보낼 수 있다.
 fn control_flow() {
-    let is_this_true = false;
+    let is_this_true = random::<bool>();
 
     let a_never_mind = if is_this_true {
         "is_this_true is true"
@@ -123,7 +126,7 @@ fn control_flow() {
 
     let mut index = 0;
     loop {
-        println! {"{} {}",a_never_mind, index};
+        println! {"{} {}", a_never_mind, index};
         if index < 5 {
             index += 1;
         } else {

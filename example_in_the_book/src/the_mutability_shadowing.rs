@@ -1,14 +1,19 @@
 ///
 /// # 변수와 가변성
 ///
-/// - [`러스트가 의도한 점`]
-/// - [`러스트에서 변수`]
-/// - [`상수`]
-/// - [`섀도잉`]
+/// - 러스트가 의도한 점
+/// - 러스트에서 변수
+///     - [`immutable_variable`]
+///     - [`mutable_variable`]
+/// - 상수
+///     - [`using_constant`]
+/// - 섀도잉
+///     - [`example_of_shadowing`]
+///     - [`same_name_but_different_type`]
 ///
 #[allow(unused)]
 pub fn main() {
-    println! {"배경지식 the_backgroud_knowledge -> 변수와 가변성 the_mutability_shadowing"}
+    println! {"배경지식 the_backgroud_knowledge -> 변수와 가변성 the_mutability_shadowing"};
     // - [`러스트가 의도한 점`]
     // - [`러스트에서 변수`]
     immutable_variable();
@@ -22,6 +27,7 @@ pub fn main() {
     println! {"변수와 가변성 the_mutability_shadowing -> 소유권 the_ownership"};
 }
 
+///
 /// ## 러스트가 의도한 점
 /// - 러스트에서 변수는 기본적으로 불변임
 ///     - 안정성과 쉬운 동시성을 취하도록 유도
@@ -30,10 +36,10 @@ pub fn main() {
 ///     - 불변성을 권하는 이유
 ///     - 가변성을 사용하는 상황
 ///
-
 /// ## 러스트에서 변수
 /// ### 불변성
 /// 변수가 불변일 때, 값을 변경하려 시도하는 예시
+///
 fn immutable_variable() {
     let immutable = 5;
     println!("immutable 값 : {}", immutable);
@@ -90,15 +96,19 @@ fn example_of_constant() -> i64 {
     const MAX_LEVEL: i64 = max_level() + 7;
     MAX_LEVEL
 }
+
 fn using_constant() {
     println!("wow {} level so much {}", MAX_LEVEL, example_of_constant());
 }
+
 /// 전역으로 설정, 컴파일 타임에 결정되는 표현식이 쓰임
 /// 상수가 선언된 스코프 내에서, 프로그램이 동작하는 전체 시간동안 유효합니다.
 const MAX_LEVEL: i64 = max_level();
+
 const fn max_level() -> i64 {
     43
 }
+
 /// 하드코딩한 값을 상수로 두면 나중에 바꾸기 편하다.
 
 /// # 섀도잉
@@ -126,6 +136,7 @@ fn example_of_shadowing() {
     }
     println!("이 밖 스코프에서는 x 값은 {}", x);
 }
+
 /// 섀도잉은 변수를 `mut`로 표시하는 것과 다르다.
 /// `let` 키워드를 통해 새로운 변수를 만드는 것
 /// - 타입을 다르게 해서 만들 수 있다.

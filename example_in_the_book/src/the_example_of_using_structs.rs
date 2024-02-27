@@ -9,7 +9,7 @@
 //!     - [`struct_area_of_ellipse`]
 //! - 트레이트 파생
 //!     - [`trait_area_of_ellipse`]
-//! 
+//!
 
 #[allow(unused)]
 pub fn main() {
@@ -67,7 +67,7 @@ fn tuple_area_of_ellipse() {
 /// ## 구조체를 사용하여 리펙토링
 ///
 /// 타원 구조체를 정의해서 함수 내에서 명확한 의미가 표현됨.
-/// 
+///
 fn struct_area_of_ellipse() {
     struct Ellipse {
         a: f64,
@@ -85,11 +85,11 @@ fn struct_area_of_ellipse() {
 
 ///
 /// ## 트레이트 파생
-/// 
-/// 
+///
+///
 /// `#[derive(Debug)]` 추가
 /// - `Debug` 트레이트을 언어에서 구현하도록 외부 속성을 추가
-/// 
+///
 fn trait_area_of_ellipse() {
     #[derive(Debug)]
     struct Ellipse {
@@ -104,5 +104,5 @@ fn trait_area_of_ellipse() {
     let a_ellipse = Ellipse { a: 50.0, b: 30.0 };
 
     println!("튜플을 사용해 구한 타원의 넓이: {:.4}", area(&a_ellipse));
-    println!("출력 방법을 구현된 타원 : {:?}",a_ellipse);
+    println!("출력 방법을 구현된 타원 : {:?}", a_ellipse);
 }

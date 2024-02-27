@@ -85,7 +85,7 @@ fn auto_refer_and_derefer() {
     let a_ellipse = Ellipse { a: 50.0, b: 30.0 };
 
     // 동일한 연산
-    
+
     println!("타원의 넓이: {:.4}", (&a_ellipse).area());
     println!(" 넓이 출력 : {:.4}", a_ellipse.area());
 }
