@@ -3,7 +3,6 @@ use std::io::stdout;
 use crossterm::{event, terminal, ExecutableCommand};
 use ratatui::{layout, prelude, widgets};
 
-#[allow(unused)]
 pub fn main() -> std::io::Result<()> {
     // set up terminal
     stdout().execute(terminal::EnterAlternateScreen)?;
