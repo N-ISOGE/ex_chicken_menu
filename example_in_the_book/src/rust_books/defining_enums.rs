@@ -20,7 +20,6 @@ pub fn main() {
     option_enums();
 }
 
-
 ///
 /// ## 열거형
 /// - 하나의 타입이 가질 수 있는 배리언트를 열거함으로써 타입을 정의할 수 있도록함
@@ -169,5 +168,8 @@ fn option_enums() {
     let absent_number: std::option::Option<i32> = Some(4);
     // 일단은 다른 타입, 같다고 무심코 작성하는 걸 방지함
     // 널 체크를 언어적으로 의식하게 해줌.
-    // let sum = absent_number + five;
+    let sum = match absent_number {
+        None => five,
+        Some(i) => i + five,
+    };
 }
