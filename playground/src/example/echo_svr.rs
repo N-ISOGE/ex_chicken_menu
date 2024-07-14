@@ -6,9 +6,31 @@
 //! 2. 바인드,
 //!
 // use std::io;
-#[allow(dead_code)]
-fn main() {
+use std::sync::RwLock;
+use windows::{core::*, Win32::System::Threading::*};
 
+static COUNTER: RwLock<i32> = RwLock::new(0);
+
+extern "system" fn example_callback(_: PTP_CALLBACK_INSTANCE, _: *mut std::ffi::c_void, _: PTP_WORK) {
+    let mut counter = COUNTER.write().unwrap();
+    *counter += 1;
+}
+
+pub fn main() -> Result<()> {
+    unsafe {
+        let work = CreateThreadpoolWork(Some(example_callback), None, None)?;
+
+        for _ in 0..10{
+            SubmitThreadpoolWork(work);
+        }
+
+        WaitForThreadpoolWorkCallbacks(work,false);
+        CloseThreadpoolWork(work);
+
+        let counter = COUNTER.read().unwrap();
+        println!("counter: {}", *counter);
+    }
+    Ok(())
     // 게임 초기화
 
     // 메인 루프 실행

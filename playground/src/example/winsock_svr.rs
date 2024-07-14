@@ -5,7 +5,7 @@ use windows::{
 
 pub fn main() -> Result<()> {
     let mut filename = std::env::current_dir().unwrap();
-    filename.push("message.txt");
+    filename.push("README.md");
     unsafe {
         let mut string = filename.as_path().to_str().unwrap().to_owned();
         string.push('\0');
@@ -33,7 +33,7 @@ pub fn main() -> Result<()> {
             InternalHigh: 0,
         };
 
-        let mut buffer: [u8; 12] = Default::default();
+        let mut buffer: [u8; 94] = [0; 94];
 
         if let Err(error) = ReadFile(file, Some(&mut buffer), None, Some(&mut overlapped)) {
             assert_eq!(error.code(), ERROR_IO_PENDING.into());
@@ -43,7 +43,7 @@ pub fn main() -> Result<()> {
 
         let mut bytes_copied = 0;
         GetOverlappedResult(file, &overlapped, &mut bytes_copied, false)?;
-        assert_eq!(bytes_copied, 12);
+        assert_eq!(bytes_copied, 94);
 
         CloseHandle(file)?;
 
