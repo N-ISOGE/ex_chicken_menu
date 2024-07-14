@@ -5,13 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-# 컴파일러 최적화 옵션
-[profile.dev]
-opt-level = 1
-
-[profile.dev.package."*"]
-opt-level = 3
 
 [dependencies]
-bevy = "0.13.0"
+bevy = "0.14.0"
 
