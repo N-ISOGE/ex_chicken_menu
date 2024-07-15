@@ -6,6 +6,7 @@
 //! 2. 바인드,
 //!
 // use std::io;
+#[allow(dead_code)]
 fn main() {
 
     // 게임 초기화
