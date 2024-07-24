@@ -12,8 +12,8 @@
 //!
 
 mod ex_0_video;
-mod rust_books;
 mod ex_tips;
+mod rust_books;
 
 ///
 /// # rust, 러스트

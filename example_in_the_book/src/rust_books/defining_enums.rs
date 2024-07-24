@@ -12,7 +12,7 @@
 //! - 열거형 예시 `std::option::Option`
 //!     - [`option_enums`]
 //!
-
+#[allow(dead_code)]
 pub fn main() {
     enums_basic();
     enums_varients();
@@ -145,13 +145,14 @@ fn defined_message_as_enum() {
 ///
 /// 있는지 확인할 때 처리할 경우의 수를 다 따져 봤는지 컴파일러가 알려줌.
 ///
-/// null 개념 밴됨.
+/// null 개념을 다르게 구현함.
 ///
 /// ### 근데 비슷한 개념이 Option에 있긴하다
 /// 하지만 이 None이 null과 다른건, 컴파일러에서 다루는 방식이 차이가 있다
 /// option은 None이 될 수 있다는 경고를 컴파일러에서 받음
 ///
-/// 관련된 메서드도 많다.
+/// 관련된 메서드도 많다. 참고해서 활용하기
+/// None, T 두 경우를 다루기 위한 도구 match 표현식 존재
 ///
 #[allow(unused)]
 fn option_enums() {
@@ -167,6 +168,7 @@ fn option_enums() {
     let five: i32 = 5;
     let absent_number: std::option::Option<i32> = Some(4);
     // 일단은 다른 타입, 같다고 무심코 작성하는 걸 방지함
+    // let sum = five + absent_number;
     // 널 체크를 언어적으로 의식하게 해줌.
     let sum = match absent_number {
         None => five,

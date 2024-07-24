@@ -50,7 +50,7 @@ fn immutable_variable() {
 
 /// 컴파일러가 오류를 출력함
 ///
-/// error[E0384]: cannot assign twice to immutable variable `immutable`  
+/// error\[E0384]: cannot assign twice to immutable variable `immutable`  
 /// --> src/chap/the_mutability_shadowing.rs:29:5  
 ///    |  
 /// 26 |     let immutable = 5;  

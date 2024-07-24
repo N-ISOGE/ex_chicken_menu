@@ -20,8 +20,10 @@
 //!
 //! 6. 열거형
 //!     - [`defining_enums`]
+//!     - [`expression_match`]
 //!
 pub mod defining_enums;
+pub mod expression_match;
 pub mod number_game;
 pub mod the_background_knowledge;
 pub mod the_defining_structs;
@@ -35,5 +37,5 @@ pub mod the_slice;
 
 #[allow(dead_code)]
 pub fn main() {
-    the_marcos::main();
+    expression_match::main();
 }
