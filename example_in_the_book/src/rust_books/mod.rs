@@ -38,4 +38,5 @@ pub mod the_slice;
 #[allow(dead_code)]
 pub fn main() {
     expression_match::main();
+    the_marcos::main();
 }

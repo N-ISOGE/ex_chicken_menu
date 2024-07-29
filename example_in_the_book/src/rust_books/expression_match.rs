@@ -1,10 +1,20 @@
 //! ## match 표현식
 //!
+//! - [`OverviewMatchExpression`]
+//! - [`value_in_cents`]
+//! - [`value_in_us_cents`]
+//! - [`plus_one`]
+//! - [`ExhaustiveMatch`]
+//! - [`catch_all_and_under_bar`]
+//! - [`other_if_let`]
 //!
 
 pub fn main() {
     println!("{} wow", value_in_cents(Coin::random_coin()));
     println!("{} wow us coin", value_in_us_cents(USCoin::random_coin()));
+    print_sample_of_plus_one();
+    catch_all_and_under_bar();
+    other_if_let();
 }
 
 /// ## `match`, 제어 흐름 연산자
@@ -105,16 +115,109 @@ impl USCoin {
     }
 }
 
-/// ### 값을 바인딩 하는 예시
+/// ### 매칭된 결과 중 일부분을 바인딩 하는 예시
+///
+/// 아래에서 Quarter(state)의 경우에 매칭한 결과의 일부분 state를 바인딩해서 사용가능.
+/// 명시적으로 특수화도 가능함
 ///
 fn value_in_us_cents(us_coin: USCoin) -> u8 {
     match us_coin {
         USCoin::Penny => 1,
         USCoin::Nickel => 5,
         USCoin::Dime => 10,
+        USCoin::Quarter(UsState::Alabama) => {
+            println!("what states make this? {:?}", UsState::Alabama);
+            20
+        }
         USCoin::Quarter(state) => {
             println!("what states make this? {:?}", state);
             25
         }
+    }
+}
+
+/// ## Option<T> 이용한 매칭
+/// match 표현식으로 Option<T>을 다뤄봄.
+///
+/// Some() => Some() : 같은 베리언트 가져서 가능
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    // match x {
+    //     None => None,
+    //     Some(i) => Some(i + 1),
+    // }
+    x.map(|i| i + 1)
+}
+
+fn print_sample_of_plus_one() {
+    let five = Some(5);
+    println!(
+        "five {:?} plus_one(five) {:?} plus_one(None) {:?}",
+        five,
+        plus_one(five),
+        plus_one(None)
+    );
+}
+
+/// ## 모든 가능성을 대처해야 하는 match 표현식
+///
+/// match 표현식에서 왠만해서 모든 가능한 경우를 러스트가 알려줌
+#[allow(dead_code)]
+struct ExhaustiveMatch;
+
+enum Currency {
+    US(USCoin),
+    Base(Coin),
+}
+
+/// ## 포괄 패턴, other과 _ 자리표시자
+///
+/// match 표현식은 갈래를 순차적으로 평가하다가
+/// 포괄적으로 받는 갈래를 마지막 차례에 둘 수 있다
+///
+/// 포괄 갈래의 변수를 안 쓰는 경우 이름을 _로 표시함.
+///
+
+fn catch_all_and_under_bar() {
+    use rand::prelude::*;
+    let wow = match thread_rng().gen_range(0..3) {
+        1 => Some(Currency::US(USCoin::random_coin())),
+        2 => Some(Currency::Base(Coin::random_coin())),
+        other => {
+            println!("{}, it other!", other);
+            None
+        }
+    };
+
+    match wow {
+        Some(Currency::Base(coin)) => {
+            println!("wow is coin {}", value_in_cents(coin))
+        }
+        Some(Currency::US(us)) => {
+            println!("wow is uscoin {}", value_in_us_cents(us))
+        }
+        _ => {
+            println!("it _!")
+        }
+    }
+}
+
+/// ## match보다 간단한 if let
+fn other_if_let() {
+    use rand::prelude::*;
+    let wow = match random() {
+        true => Some(Coin::random_coin()),
+        other => {
+            println!("{}, it other!", other);
+            None
+        }
+    };
+
+    if let Some(coin) = wow {
+        if let Coin::Quarter = coin {
+            println!("if let에서 쿼터 나옴")
+        }
+        println!("if let {:}", value_in_cents(coin));
+    } else {
+        println!("if let in else ");
     }
 }
