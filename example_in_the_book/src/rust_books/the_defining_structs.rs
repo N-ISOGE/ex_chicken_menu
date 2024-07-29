@@ -115,7 +115,7 @@ fn example_of_struct_like() {
     #[allow(unused_variables)]
     let sign = Off;
 
-    println!("{:?}", origin.0);
+    println!("{:?}, {:?}", origin.0, origin.1);
 }
 
 ///

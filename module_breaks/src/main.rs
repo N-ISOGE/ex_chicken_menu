@@ -19,7 +19,7 @@ fn main() {
 // 길이 px인가 mm인가, 시간 s
 
 // PADDLE
-const PADDLE_START_Y: f32 = 0.0;
+const PADDLE_START_Y: f32 = -250.0;
 const PADDLE_SIZE: Vec3 = Vec3::new(120.0, 20., 0.);
 const PADDLE_COLOR: Color = Color::rgb(0.3, 0.2, 0.5);
 const PADDLE_SPEED: f32 = 700.0;
@@ -44,7 +44,14 @@ const WALL_BLOCK_HEIGHT: f32 = WALL_TOP - WALL_BOTTOM;
 const WALL_COLOR: Color = Color::rgb(0.8, 0.8, 0.8);
 
 #[derive(Component)]
-struct Paddle;
+struct Movable;
+
+#[derive(Bundle)]
+struct PaddleBundle {
+    sprite_bundle: SpriteBundle,
+    collider: Collider,
+    movable: Movable,
+}
 
 #[derive(Component)]
 struct Ball;
@@ -66,8 +73,8 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn(Camera2dBundle::default());
 
     // paddle
-    commands.spawn((
-        SpriteBundle {
+    commands.spawn(PaddleBundle {
+        sprite_bundle: SpriteBundle {
             transform: Transform {
                 translation: math::vec3(0., PADDLE_START_Y, 0.),
                 scale: PADDLE_SIZE,
@@ -79,8 +86,9 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
             },
             ..default()
         },
-        Paddle,
-    ));
+        collider: Collider,
+        movable: Movable,
+    });
 
     // ball
     let ball_tex = asset_server.load("textures/ball.png");
@@ -179,7 +187,7 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
 fn move_paddle(
     input: Res<ButtonInput<KeyCode>>,
     time_step: Res<Time<Fixed>>,
-    mut query: Query<&mut Transform, With<Paddle>>,
+    mut query: Query<&mut Transform, With<Movable>>,
 ) {
     let mut paddle_transform = query.single_mut();
 
