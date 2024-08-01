@@ -136,8 +136,8 @@ fn value_in_us_cents(us_coin: USCoin) -> u8 {
     }
 }
 
-/// ## Option<T> 이용한 매칭
-/// match 표현식으로 Option<T>을 다뤄봄.
+/// ## `Option<T>` 이용한 매칭
+/// match 표현식으로 `Option<T>`을 다뤄봄.
 ///
 /// Some() => Some() : 같은 베리언트 가져서 가능
 fn plus_one(x: Option<i32>) -> Option<i32> {
