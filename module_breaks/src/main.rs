@@ -3,7 +3,7 @@ use bevy::{math, prelude::*};
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
-        .add_systems(Update, bevy::window::close_on_esc)
+        .add_systems(Update, bevy::window::exit_on_all_closed)
         .add_systems(Startup, setup)
         .add_systems(
             FixedUpdate,
@@ -21,13 +21,13 @@ fn main() {
 // PADDLE
 const PADDLE_START_Y: f32 = -250.0;
 const PADDLE_SIZE: Vec3 = Vec3::new(120.0, 20., 0.);
-const PADDLE_COLOR: Color = Color::rgb(0.3, 0.2, 0.5);
+const PADDLE_COLOR: Color = Color::srgb(0.3, 0.2, 0.5);
 const PADDLE_SPEED: f32 = 700.0;
 
 // BALL
 const BALL_DIAMETER: f32 = 20.;
 const BALL_SIZE: Vec2 = Vec2::splat(BALL_DIAMETER);
-const BALL_COLOR: Color = Color::rgb(0.9, 0.1, 0.2);
+const BALL_COLOR: Color = Color::srgb(0.9, 0.1, 0.2);
 const BALL_SPEED: f32 = 500.0;
 const BALL_STARTING_POSITION: Vec3 = Vec3::new(0.0, -50.0, 1.);
 const BALL_INITIAL_DIRECTION: Vec2 = Vec2::new(0.5, -0.5);
@@ -41,7 +41,7 @@ const WALL_BOTTOM: f32 = -300.;
 const WALL_THICKNESS: f32 = 10.;
 const WALL_BLOCK_WIDTH: f32 = WALL_RIGHT - WALL_LEFT;
 const WALL_BLOCK_HEIGHT: f32 = WALL_TOP - WALL_BOTTOM;
-const WALL_COLOR: Color = Color::rgb(0.8, 0.8, 0.8);
+const WALL_COLOR: Color = Color::srgb(0.8, 0.8, 0.8);
 
 #[derive(Component)]
 struct Movable;

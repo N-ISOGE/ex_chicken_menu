@@ -32,3 +32,21 @@ pub fn merge(
     *next_tail = if list1.is_some() { list1 } else { list2 };
     head
 }
+
+#[test]
+pub fn merge_test() {
+    let head_a = Some(Box::new(ListNode { val: 2, next: None }));
+    let head_b = Some(Box::new(ListNode { val: 1, next: None }));
+
+    let mut result = merge(head_a, head_b);
+
+    for i in 1..3 {
+        match result.clone() {
+            None => panic!("broken link!"),
+            Some(node) => {
+                assert_eq!(node.val, i);
+            }
+        }
+        result = result.clone().unwrap().next;
+    }
+}
