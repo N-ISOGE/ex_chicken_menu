@@ -9,6 +9,7 @@
 //! - [`MainAndLibsBoth`]
 //! - [`example_of_relative_path`]
 //! - [`struct_enum_control_permission`]
+//! - [`example_of_use`]
 //!
 
 /// # 크레이트란? 용어 위주로
@@ -177,8 +178,29 @@ pub mod struct_enum_control_permission {
     }
 }
 
+/// # `use`로 경로를 스코프 안으로 가져오기, `as`로 별명 지어주기
+///
+/// 같은 스코프에서만 use로 선언한 단축경로가 유효함.
+/// 기존 모듈 공개 규칙에는 영향을 받음. -> 공개된 모듈만 가능.
+///
+/// use로 경로를 단축할 때 어느 부모 모듈에서 왔는지 알 수 있게 부모 모듈까지만 use 사용한 뒤 함수 호출시에는 부모 모듈을 밝힘.
+///
+/// ### `as`로 단축경로에 대한 별명을 선언할 수 있음.
+///
+/// ### `pub use`, 단축 경로 재공개
+///
+/// `use`도 기본적으로 비공개, `pub`을 사용하면 다른 곳에서도 단축 경로 사용 가능.
+///
+fn example_of_use() {
+    pub use struct_enum_control_permission::wallet as example_wallet;
+
+    let some_card = example_wallet::Card::init_example_card("hello");
+
+    println!("{}'s card : {:?}", some_card.name, some_card.number);
+}
 
 #[allow(unused)]
 pub fn main() {
     struct_enum_control_permission::test_making_card();
+    example_of_use();
 }

@@ -33,6 +33,7 @@
 //!
 //! 상세 목록
 //!     - [`the_package_and_crate`]
+//!     - [`the_extern_pkg_and_pkg_file`]
 pub mod defining_enums;
 pub mod expression_match;
 pub mod number_game;
@@ -46,6 +47,7 @@ pub mod the_ownership;
 pub mod the_package_and_crate;
 pub mod the_refer_borrow;
 pub mod the_slice;
+pub mod the_extern_pkg_and_pkg_file;
 
 #[allow(dead_code)]
 pub fn main() {
