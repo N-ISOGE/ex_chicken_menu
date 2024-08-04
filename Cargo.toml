@@ -5,7 +5,7 @@ resolver = "2"
 
 # 컴파일러 최적화 옵션
 [profile.dev]
-opt-level = 2
+opt-level = 1
 debug = "limited"
 
 [profile.dev.package."*"]
