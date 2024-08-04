@@ -1,4 +1,3 @@
-
 use std::sync::atomic::{AtomicU32, Ordering::SeqCst};
 
 #[derive(Default)]
@@ -18,6 +17,7 @@ impl Counter {
 }
 
 #[test]
+#[ignore = "intended error"]
 fn threaded_test() {
     let counter = Counter::default();
 
