@@ -15,7 +15,6 @@ mod ex_0_video;
 mod ex_tips;
 mod rust_books;
 
-
 ///
 /// # rust, 러스트
 ///
@@ -29,4 +28,7 @@ mod rust_books;
 /// - tip
 ///     - [`ex_tips`]
 ///
-fn main() {}
+
+
+fn main() {
+}

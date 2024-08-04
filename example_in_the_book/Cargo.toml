@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.5"
+log = "^0.4.22"
+test-log = "^0.2.16"
