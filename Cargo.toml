@@ -1,6 +1,6 @@
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [workspace]
-members = ["example_in_the_book", "module_breaks", "playground", "치킨메뉴"]
+members = ["example_in_the_book", "playground", "치킨메뉴"]
 resolver = "2"
 
 # 컴파일러 최적화 옵션
