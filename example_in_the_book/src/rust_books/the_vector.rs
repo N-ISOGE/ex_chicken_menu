@@ -2,19 +2,19 @@
 //!
 //! contiguous 메모리 공간 제공, 같은 타입 여러개 저장
 //! 언급 안한 것들은 공식문서 참고
-//! 
+//!
 //! - [`make_update_vector`]
 //! - [`read_element_of_vector`]
 //! - [`iteration_of_vector`]
 //! - [`vector_of_enum_variant_value`]
-//! 
+//!
 
 use test_log::test;
 
 /// # 벡터 만들고 업데이트 하기
 ///
 /// ## 벡터 만들기
-/// 
+///
 /// 어떤 값을 저장하는 지 모르니깐 타입을 명시해둠. -> \<타입 인자\>
 /// - 아니면 저장할 원소로 추론하게 함.
 /// - 메크로 `vec![ <저장할 원소>, ...]`도 제공
@@ -23,11 +23,11 @@ use test_log::test;
 ///
 /// `push()`를 사용해서 벡터를 변경 가능, 대신 `mut`로 변경 가능한 것로 선언해야함.
 /// 타입을 명시하지 않아도 `push()`로 삽입한 원소 타입이 `i32`인 것으로 러스트가 타입을 추론함.
-/// 
+///
 /// ## 벡터의 소멸
-/// 
+///
 /// 스코프를 벗어나면 해제됨.
-/// 
+///
 #[allow(clippy::vec_init_then_push)]
 #[test]
 pub fn make_update_vector() {
@@ -109,9 +109,9 @@ pub fn iteration_of_vector() {
 }
 
 /// # 열거형을 이용해 다양한 타입 저장하기
-/// 
+///
 /// 벡터에 담을 타입은 컴파일때 결정 -> enum으로 미리 선언한 뒤 사용
-/// 
+///
 #[test]
 pub fn vector_of_enum_variant_value() {
     use log::debug;
