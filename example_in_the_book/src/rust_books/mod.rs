@@ -36,12 +36,12 @@
 //!  - [`the_extern_pkg_and_pkg_file`]
 //!
 //! ## 8. 컬렉션
-//! 
+//!
 //! 컬렉션, 러스트 표준 라이브러리에서 제공하는 데이터 구조들 중 한 종류.
-//! - 여러 값을 담을 수 있고 힙을 사용함. 
+//! - 여러 값을 담을 수 있고 힙을 사용함.
 //! - 크기와 비용이 다름.
 //! 소개할 컬렉션으로는 vector, string, hash map이 있고 다른 것은 표준 문서 참조.
-//! 
+//!
 //! **상세 목록**
 //! - [`the_vector`]
 pub mod defining_enums;
@@ -59,9 +59,3 @@ pub mod the_package_and_crate;
 pub mod the_refer_borrow;
 pub mod the_slice;
 pub mod the_vector;
-
-#[allow(dead_code)]
-pub fn main() {
-    expression_match::main();
-    the_marcos::main();
-}

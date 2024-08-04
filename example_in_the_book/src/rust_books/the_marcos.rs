@@ -43,6 +43,7 @@ macro_rules! my_assert_ne {
     };
 }
 
+#[allow(dead_code)]
 pub fn main() {
     simple_example();
 }
