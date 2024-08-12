@@ -44,6 +44,7 @@
 //!
 //! **상세 목록**
 //! - [`the_vector`]
+//! - [`the_strings`]
 pub mod defining_enums;
 pub mod expression_match;
 pub mod number_game;
@@ -58,4 +59,5 @@ pub mod the_ownership;
 pub mod the_package_and_crate;
 pub mod the_refer_borrow;
 pub mod the_slice;
+pub mod the_strings;
 pub mod the_vector;
