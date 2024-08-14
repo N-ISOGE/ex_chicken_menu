@@ -37,15 +37,15 @@
 //!
 //! ## 8. 컬렉션
 //!
-//! 컬렉션, 러스트 표준 라이브러리에서 제공하는 데이터 구조들 중 한 종류.
-//! - 여러 값을 담을 수 있고 힙을 사용함.
-//! - 크기와 비용이 다름.
-//! 소개할 컬렉션으로는 vector, string, hash map이 있고 다른 것은 표준 문서 참조.
+//!  컬렉션, 러스트 표준 라이브러리에서 제공하는 데이터 구조들 중 한 종류.
+//!  - 여러 값을 담을 수 있고 힙을 사용함.
+//!  - 크기와 비용이 다름.
+//!  소개할 컬렉션으로는 vector, string, hash map이 있고 다른 것은 표준 문서 참조.
 //!
-//! **상세 목록**
-//! - [`the_vector`]
-//! - [`the_strings`]
-//! - [`the_hashmap`]
+//!  **상세 목록**
+//!  - [`the_vector`]
+//!  - [`the_strings`]
+//!  - [`the_hashmap`]
 pub mod number_game;
 pub mod the_background_knowledge;
 pub mod the_defining_enums;
