@@ -17,8 +17,8 @@
 //!  - [`the_method_syntax`]
 //!
 //! ## 6. 열거형  
-//!  - [`defining_enums`]
-//!  - [`expression_match`]
+//!  - [`the_defining_enums`]
+//!  - [`the_expression_match`]
 //!
 //! ## 7. 모듈  
 //!  모듈 기능은 코드를 나눠서 필요한 부분을 쉽게 찾고 사용할 수 있게 해줌.  
@@ -46,12 +46,12 @@
 //! - [`the_vector`]
 //! - [`the_strings`]
 //! - [`the_hashmap`]
-pub mod defining_enums;
-pub mod expression_match;
 pub mod number_game;
 pub mod the_background_knowledge;
+pub mod the_defining_enums;
 pub mod the_defining_structs;
 pub mod the_example_of_using_structs;
+pub mod the_expression_match;
 pub mod the_extern_pkg_and_pkg_file;
 pub mod the_hashmap;
 pub mod the_marcos;
