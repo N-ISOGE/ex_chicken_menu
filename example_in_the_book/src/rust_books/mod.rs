@@ -45,6 +45,7 @@
 //! **상세 목록**
 //! - [`the_vector`]
 //! - [`the_strings`]
+//! - [`the_hashmap`]
 pub mod defining_enums;
 pub mod expression_match;
 pub mod number_game;
@@ -52,6 +53,7 @@ pub mod the_background_knowledge;
 pub mod the_defining_structs;
 pub mod the_example_of_using_structs;
 pub mod the_extern_pkg_and_pkg_file;
+pub mod the_hashmap;
 pub mod the_marcos;
 pub mod the_method_syntax;
 pub mod the_mutability_shadowing;
