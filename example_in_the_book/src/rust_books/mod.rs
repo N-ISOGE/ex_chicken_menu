@@ -46,6 +46,7 @@
 //!  - [`the_vector`]
 //!  - [`the_strings`]
 //!  - [`the_hashmap`]
+//!  - [`the_middle_exam_collect`]
 pub mod number_game;
 pub mod the_background_knowledge;
 pub mod the_defining_enums;
@@ -56,6 +57,7 @@ pub mod the_extern_pkg_and_pkg_file;
 pub mod the_hashmap;
 pub mod the_marcos;
 pub mod the_method_syntax;
+pub mod the_middle_exam_collect;
 pub mod the_mutability_shadowing;
 pub mod the_ownership;
 pub mod the_package_and_crate;
