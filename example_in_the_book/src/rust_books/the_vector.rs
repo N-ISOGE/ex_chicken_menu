@@ -31,7 +31,7 @@ use test_log::test;
 #[allow(clippy::vec_init_then_push)]
 #[test]
 pub fn make_update_vector() {
-    use log::debug;
+    // use log::debug;
     use std::any::{Any, TypeId};
 
     let v: Vec<i64> = Vec::new();
@@ -45,7 +45,7 @@ pub fn make_update_vector() {
     v.push(6);
     v.push(7);
     v.push(8);
-    debug!("{:?}", v);
+    // debug!("{:?}", v);
     debug_assert_eq!(v, [5, 6, 7, 8]);
 }
 
@@ -60,12 +60,12 @@ pub fn make_update_vector() {
 #[allow(clippy::useless_vec)]
 #[test]
 pub fn read_element_of_vector() {
-    use log::debug;
+    // use log::debug;
 
     let v = vec![1, 2, 3, 4, 5];
 
     let third: &i32 = &v[2];
-    debug!("{third}, the third element is referenced by index number");
+    // debug!("{third}, the third element is referenced by index number");
     assert_eq!(*third, 3, "v[2] is {}", v[2]);
 
     let third: Option<&i32> = v.get(2);
@@ -74,14 +74,14 @@ pub fn read_element_of_vector() {
             panic!("there is no third element");
         }
         Some(number) => {
-            debug!("{number}, the third element is referenced by get method");
+            // debug!("{number}, the third element is referenced by get method");
             assert_eq!(*number, 3, "v[2] is {}", v[2]);
         }
     }
 
-    let first = &v[0];
+    // let first = &v[0];
     // v.push(6);
-    debug!("the first element : {first}");
+    // debug!("the first element : {first}");
 }
 
 /// # 반복문으로 벡터 방문하기
@@ -92,14 +92,14 @@ pub fn read_element_of_vector() {
 #[allow(clippy::useless_vec)]
 #[test]
 pub fn iteration_of_vector() {
-    use log::debug;
+    // use log::debug;
 
     let v = vec![100, 37, 57];
     let mut vector_log = String::new();
     for num in &v {
         vector_log += format!("{} ", num).as_str();
     }
-    debug!("{}", vector_log);
+    // debug!("{}", vector_log);
 
     let mut v = v;
     for i in &mut v {
@@ -114,7 +114,7 @@ pub fn iteration_of_vector() {
 ///
 #[test]
 pub fn vector_of_enum_variant_value() {
-    use log::debug;
+    // use log::debug;
     enum VarNumber {
         Binary(f64),
         String(String),
@@ -130,16 +130,16 @@ pub fn vector_of_enum_variant_value() {
     for num in &numbers {
         match num {
             VarNumber::Binary(float) => {
-                debug!("binary {}", float);
+                // debug!("binary {}", float);
                 debug_assert_eq!(*float, 6.7);
             }
             VarNumber::String(num_str) => {
-                debug!("string {}", num_str);
+                // debug!("string {}", num_str);
                 debug_assert_eq!(num_str.as_str(), "6.7");
             }
             VarNumber::Int(nums) => {
-                let [first, second] = nums;
-                debug!("int {first}.{second}");
+                // let [first, second] = nums;
+                // debug!("int {first}.{second}");
                 debug_assert_eq!(nums, &[6, 7]);
             }
         }

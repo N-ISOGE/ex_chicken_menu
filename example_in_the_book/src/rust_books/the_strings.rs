@@ -99,18 +99,18 @@ pub fn test_oper_or_macro() {
 
     // report_word 소유권 + &answer_word -> total
 
-    use log::debug;
-    use std::any::{self, Any};
-    use std::ops::Add;
+    // use log::debug;
+    // use std::any::{self, Any};
+    // use std::ops::Add;
 
-    fn check_type_name<T: ?Sized + Any>(_s: &T) -> &'static str {
-        any::type_name::<T>()
-    }
+    // fn check_type_name<T: ?Sized + Any>(_s: &T) -> &'static str {
+    //     any::type_name::<T>()
+    // }
 
-    debug!(
-        "{:} \n\t fn add(self, s: &str) -> String",
-        check_type_name(&String::add)
-    );
+    // debug!(target: "the_strings",
+    //     "{:} \n\t fn add(self, s: &str) -> String",
+    //     check_type_name(&String::add)
+    // );
 
     let s1 = String::from("깍");
     let s2 = String::from("두");
@@ -147,7 +147,7 @@ fn test_internal_string() {
         };
     }
 
-    for (number, b) in "안녕".bytes().enumerate() {
-        log::debug!("안녕 {number} {b}");
-    }
+    // for (number, b) in "안녕".bytes().enumerate() {
+    //     log::debug!(target: "the_strings", "안녕 {number} {b}");
+    // }
 }
