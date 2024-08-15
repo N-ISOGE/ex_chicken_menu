@@ -25,6 +25,7 @@
 //! 그 후 사용자가 모든 사람에 대해 알파벳 순으로 정렬된 목록이나
 //! 부서별 모든 사람에 대한 목록을 조회할 수 있도록 해보세요.
 
+
 pub fn median_and_mode(numbers: &Vec<i64>) -> (i64, i64) {
     // 숫자 리스트에서 중간값, 최빈값을 찾기.
     use std::collections::HashMap;
