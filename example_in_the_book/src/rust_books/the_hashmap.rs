@@ -106,8 +106,10 @@ fn test_update_hashmap() {
     let mut num_map = HashMap::new();
 
     for word in text.split_whitespace() {
-        let count = num_map.entry(word).or_insert(0);
-        *count += 1;
+        num_map
+            .entry(word)
+            .and_modify(|count| *count += 1)
+            .or_insert(0);
     }
 
     debug_assert_eq!(num_map.get("1").copied().unwrap_or(0), 9);
