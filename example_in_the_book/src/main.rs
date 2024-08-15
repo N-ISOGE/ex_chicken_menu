@@ -28,6 +28,5 @@ mod rust_books;
 /// - tip
 ///     - [`ex_tips`]
 ///
-fn main() {
-    rust_books::main();
-}
+
+fn main() {}

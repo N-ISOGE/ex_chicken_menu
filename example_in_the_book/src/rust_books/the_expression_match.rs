@@ -9,6 +9,7 @@
 //! - [`other_if_let`]
 //!
 
+#[allow(dead_code)]
 pub fn main() {
     println!("{} wow", value_in_cents(Coin::random_coin()));
     println!("{} wow us coin", value_in_us_cents(USCoin::random_coin()));
