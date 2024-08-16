@@ -109,7 +109,7 @@ fn test_update_hashmap() {
         num_map
             .entry(word)
             .and_modify(|count| *count += 1)
-            .or_insert(0);
+            .or_insert(1);
     }
 
     debug_assert_eq!(num_map.get("1").copied().unwrap_or(0), 9);
