@@ -59,6 +59,7 @@
 //!
 //! ### 에러 처리 상세 목록
 //! - [`the_panic_handling_error`]
+//! - [`the_result_handing_error`]
 //!
 pub mod number_game;
 pub mod the_background_knowledge;
@@ -76,6 +77,7 @@ pub mod the_ownership;
 pub mod the_package_and_crate;
 pub mod the_panic_handing_error;
 pub mod the_refer_borrow;
+pub mod the_result_handing_error;
 pub mod the_slice;
 pub mod the_strings;
 pub mod the_vector;
