@@ -47,6 +47,19 @@
 //!  - [`the_strings`]
 //!  - [`the_hashmap`]
 //!  - [`the_middle_exam_collect`]
+//!
+//! ## 9. 에러 처리
+//!
+//! 에러의 종류를 복구 가능한 에러와 복구 불가능한 에러, 둘로 나눠둠.
+//! 복구 가능 에러는 사용자에게 알리고 다시 명령를 하는 상황을 생각하면 됨.
+//! 복구 불가능한 에러는 바로 프로그램을 종료해야 하는 상황을 생각하면 됨.
+//! 러스트는 예외 처리 기능이 없음.
+//! 대신 복구 가능한 에러를 위한 `Result<T, E>`형식,
+//! 복구 불가능한 에러에 종료시켜버리는 `panic!` 메크로가 존재.
+//!
+//! ### 에러 처리 상세 목록
+//! - [`the_panic_handling_error`]
+//!
 pub mod number_game;
 pub mod the_background_knowledge;
 pub mod the_defining_enums;
@@ -65,3 +78,4 @@ pub mod the_refer_borrow;
 pub mod the_slice;
 pub mod the_strings;
 pub mod the_vector;
+pub mod the_panic_handing_error;
