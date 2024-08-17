@@ -37,5 +37,8 @@ fn signature_of_result() {
     }
 
     debug_assert_eq!("1", format!("{}", Result::Ok(1)));
-    debug_assert_eq!("wow error wow", format!("{}", Result::Err(String::from("wow"))));
+    debug_assert_eq!(
+        "wow error wow",
+        format!("{}", Result::Err(String::from("wow")))
+    );
 }
