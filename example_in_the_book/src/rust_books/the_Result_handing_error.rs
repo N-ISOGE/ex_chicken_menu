@@ -45,11 +45,12 @@
 //!
 //! ```rust
 //! use std::{fs::File,io::Read};
-//!
+//! fn read_string_from_file() -> Result<String,std::io::Error>{
 //! let input_path = "tests/username.txt";
 //! let mut username = String::new();
 //!   File::open(input_path)?.read_to_string(&mut username)?;
 //!   Ok(username)
+//! }
 //! ```
 //! - [`read_username_from_file`]
 //! - [`test_question_mark_for_result`]
@@ -60,10 +61,12 @@
 //! 변환할 수 없다면 `?`이 변환할 수 없다는 에러메세지가 뜸.
 //!
 //! ```rust
-//! fn what() {
+//!
+//! # fn what() -> Result<(),std::io::Error> {
 //!     // 반환 형식이 () -> ?, from 으로 변환 불가
 //!     let file = std::fs::File::open("wow")?;
-//! }
+//! # Ok(())
+//! # }
 //! ```
 //!
 //! > error[E0277]:
@@ -92,6 +95,7 @@
 use std::path;
 use test_log::test;
 
+#[allow(dead_code)]
 static TEST_DIRECTORY_NAME: &'static str = "tests";
 
 #[test]
@@ -232,6 +236,7 @@ fn test_using_unwrap() {
     let _greeting_file = fs::File::open(&result_path).unwrap();
 }
 
+#[allow(dead_code)]
 fn read_username_file_result(input_path: &path::Path) -> Result<String, std::io::Error> {
     // 반환 타입 Result<T,E>에서 String, std::io::Error로 정해지면서
     // 성공하면 String 담은 OK값, 문제일 경우 문제의 정보를 담은 io::Error를 담은 Err값 반환

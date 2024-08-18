@@ -75,7 +75,7 @@ pub mod the_middle_exam_collect;
 pub mod the_mutability_shadowing;
 pub mod the_ownership;
 pub mod the_package_and_crate;
-pub mod the_panic_handing_error;
+pub mod the_panic_handling_error;
 pub mod the_panic_or_something_else;
 pub mod the_refer_borrow;
 pub mod the_result_handing_error;
