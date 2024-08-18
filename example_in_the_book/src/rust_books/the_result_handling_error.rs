@@ -160,6 +160,13 @@ fn test_matching_each_errors() {
 
     let result_path = path::Path::new(TEST_DIRECTORY_NAME).join("matching_each_errors.txt");
 
+    if let Err(error) = fs::create_dir(TEST_DIRECTORY_NAME) {
+        match error.kind() {
+            ErrorKind::AlreadyExists => {}
+            _other_error => return,
+        }
+    }
+
     if let Ok(_) = fs::File::open(&result_path) {
         if let Err(error) = fs::remove_file(&result_path) {
             if error.kind() != ErrorKind::NotFound {
@@ -193,6 +200,13 @@ fn test_using_closures_for_error() {
     use std::{fs, io::ErrorKind};
 
     let result_path = path::Path::new(TEST_DIRECTORY_NAME).join("closures_for_error.txt");
+
+    if let Err(error) = fs::create_dir(TEST_DIRECTORY_NAME) {
+        match error.kind() {
+            ErrorKind::AlreadyExists => {}
+            _other_error => return,
+        }
+    }
 
     if let Ok(_) = fs::File::open(&result_path) {
         if let Err(error) = fs::remove_file(&result_path) {
