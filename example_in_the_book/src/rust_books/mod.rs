@@ -60,7 +60,7 @@
 //! ### 에러 처리 상세 목록
 //! - [`the_panic_handling_error`]
 //! - [`the_result_handing_error`]
-//!
+//! - [`the_panic_or_something_else`]
 pub mod number_game;
 pub mod the_background_knowledge;
 pub mod the_defining_enums;
@@ -81,3 +81,4 @@ pub mod the_result_handing_error;
 pub mod the_slice;
 pub mod the_strings;
 pub mod the_vector;
+pub mod the_panic_or_something_else;
