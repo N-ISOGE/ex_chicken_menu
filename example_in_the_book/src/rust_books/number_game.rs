@@ -1,6 +1,5 @@
 extern crate rand;
 
-#[allow(dead_code)]
 #[allow(clippy::let_and_return)]
 pub fn give_num(one: i32, two: i32) -> i32 {
     // 지역변수 선언, 정의
@@ -33,7 +32,7 @@ fn main() {
             .read_line(&mut guess)
             .expect("failed to read line");
 
-        let guess: u32 = match guess.trim().parse()//.expect("type number!");
+        let guess: u32 = match guess.trim().parse() //.expect("type number!");
         {
             Ok(num) => num,
             Err(_) => continue,
