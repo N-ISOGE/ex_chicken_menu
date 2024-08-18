@@ -68,26 +68,6 @@ pub fn median_and_mode(numbers: &Vec<i64>) -> (i64, i64) {
     (mode_num, median_num)
 }
 
-#[test]
-fn test_mode_med_0() {
-    let number: Vec<i64> = vec![0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1];
-
-    let (mode, med) = median_and_mode(&number);
-
-    debug_assert_eq!(mode, 0);
-    debug_assert_eq!(med, 0);
-}
-
-#[test]
-fn test_mode_med_1_10() {
-    let numbers = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 9];
-
-    let (mode, med) = median_and_mode(&numbers);
-
-    debug_assert_eq!(med, 6);
-    debug_assert_eq!(mode, 9);
-}
-
 pub fn pig_latin(input: &str) -> String {
     let eng_vowel: &'static str = "aeiouAEIOU";
 
@@ -111,20 +91,44 @@ pub fn pig_latin(input: &str) -> String {
         .fold(String::new(), |acc, x| format!("{} {x}", acc.trim()))
 }
 
-#[test]
-fn test_pig_latin_table() {
-    let word = "wooden table in cabin";
-    let expected = "ooden-way able-tay in-hay abin-cay";
-    let result = pig_latin(word);
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_mode_med_0() {
+        let number: Vec<i64> = vec![0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1];
 
-    debug_assert_eq!(expected, result);
-}
+        let (mode, med) = median_and_mode(&number);
 
-#[test]
-fn test_pig_latin_empty() {
-    let word = " \t\n";
-    let expected = "";
-    let result = pig_latin(word);
+        debug_assert_eq!(mode, 0);
+        debug_assert_eq!(med, 0);
+    }
 
-    debug_assert_eq!(expected, result);
+    #[test]
+    fn test_mode_med_1_10() {
+        let numbers = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 9];
+
+        let (mode, med) = median_and_mode(&numbers);
+
+        debug_assert_eq!(med, 6);
+        debug_assert_eq!(mode, 9);
+    }
+
+    #[test]
+    fn test_pig_latin_table() {
+        let word = "wooden table in cabin";
+        let expected = "ooden-way able-tay in-hay abin-cay";
+        let result = pig_latin(word);
+
+        debug_assert_eq!(expected, result);
+    }
+
+    #[test]
+    fn test_pig_latin_empty() {
+        let word = " \t\n";
+        let expected = "";
+        let result = pig_latin(word);
+
+        debug_assert_eq!(expected, result);
+    }
 }
