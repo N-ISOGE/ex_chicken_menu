@@ -23,6 +23,8 @@
 
 use test_log::test;
 
+// noinspection ALL
+// no ALL
 #[test]
 fn formatted_print() {
     // 보통 `{}`을 사용하면 대부분의 인자가 대체된다.
