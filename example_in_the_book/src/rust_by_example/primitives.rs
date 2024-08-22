@@ -49,7 +49,7 @@
 //! - 정수는 타입 접미사붙여서 이진 팔진 십육진 선택 가능
 //!
 //! 숫자 리터럴에선 가능한거
-//! - 리터럴 중간에 언버스코어를 넣어서 분리 가능
+//! - 리터럴 중간에 언더스코어를 넣어서 분리 가능
 //!     - `10000` -> `1_0000`
 //! - e 표기법 가능
 //!     - `200` -> `2e2`
@@ -94,85 +94,84 @@
 //! - 타입을 나열함
 //!
 //! 함수에서 여러 값을 동시에 반환할 때 사용 가능.
-
-use test_log::test;
-
-#[test]
-fn show_usage_of_tuple() {
-    // 매개변수로 받을 때나 반환할 때나 여러값 동시에 전달
-    fn reverse(pair: (i32, bool)) -> (bool, i32) {
-        // c++에서 Structured binding declaration라고 부름
-        let (int_param, bool_param) = pair;
-
-        (bool_param, int_param)
-    }
-
-    // 여러 타입이 섞인 튜플
-    let long_tuple = (
-        1u8, 2u16, 3u32, 4u64, -1i8, -2i16, -3i32, -4i64, 0.1f32, 0.2f64, 'a', true,
-    );
-
-    debug_assert_eq!(1u8, long_tuple.0);
-    debug_assert_eq!(2u16, long_tuple.1);
-
-    debug_assert_eq!(
-        "(1, 2, 3, 4, -1, -2, -3, -4, 0.1, 0.2, 'a', true)",
-        format!("{:?}", long_tuple)
-    );
-
-    let tuple_of_tuples = ((1, 2, 3), (3isize, true), "123");
-
-    debug_assert_eq!(
-        r#"((1, 2, 3), (3, true), "123")"#,
-        format!("{:?}", tuple_of_tuples)
-    );
-
-    // 튜플의 타입 갯수 한계를 12개로 정해둠.
-    // let default_by_marco = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
-    // debug_assert_eq!(
-    //     r"(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)",
-    //     format!("{:?}", default_by_marco)
-    // );
-
-    let pair = (3, true);
-    debug_assert_eq!("(3, true)", format!("{:?}", pair));
-    debug_assert_eq!("(true, 3)", format!("{:?}", reverse(pair)));
-
-    use std::any::{Any, TypeId};
-    // 원소 하나인 튜플을 표현할 때는 원소 뒤에 쉼표를 붙여두기
-    debug_assert_eq!(TypeId::of::<(i32,)>(), (3,).type_id());
-    debug_assert_eq!(TypeId::of::<i32>(), (3).type_id());
-
-    let tuple = (10, "이", 0.3, false);
-    let (a, b, c, d) = tuple;
-
-    debug_assert_eq!(
-        r#"10 "이" 0.3 false"#,
-        format!("{:?} {:?} {:?} {:?}", a, b, c, d)
-    );
-
-    #[derive(Debug)]
-    struct Matrix(f32, f32, f32, f32);
-
-    use std::fmt;
-
-    impl fmt::Display for Matrix {
-        fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-            write!(f, "( {} {} )\n( {} {} )", self.0, self.1, self.2, self.3)
-        }
-    }
-
-    let mat = Matrix(1.1, 1.2, 2.1, 2.2);
-
-    debug_assert_eq!("( 1.1 1.2 )\n( 2.1 2.2 )", format!("{:}", mat));
-
-    fn transpose(matrix: &Matrix) -> Matrix {
-        Matrix {
-            0: matrix.0,
-            1: matrix.2,
-            2: matrix.1,
-            3: matrix.3,
-        }
-    }
-    debug_assert_eq!("( 1.1 2.1 )\n( 1.2 2.2 )", format!("{:}", transpose(&mat)));
-}
+//!
+//! ```rust
+//! fn show_usage_of_tuple() {
+//!     // 매개변수로 받을 때나 반환할 때나 여러값 동시에 전달
+//!     fn reverse(pair: (i32, bool)) -> (bool, i32) {
+//!         // c++에서 Structured binding declaration라고 부름
+//!         let (int_param, bool_param) = pair;
+//!
+//!         (bool_param, int_param)
+//!     }
+//!
+//!     // 여러 타입이 섞인 튜플
+//!     let long_tuple = (
+//!         1u8, 2u16, 3u32, 4u64, -1i8, -2i16, -3i32, -4i64, 0.1f32, 0.2f64, 'a', true,
+//!     );
+//!
+//!     debug_assert_eq!(1u8, long_tuple.0);
+//!     debug_assert_eq!(2u16, long_tuple.1);
+//!
+//!     debug_assert_eq!(
+//!         "(1, 2, 3, 4, -1, -2, -3, -4, 0.1, 0.2, 'a', true)",
+//!         format!("{:?}", long_tuple)
+//!     );
+//!
+//!     let tuple_of_tuples = ((1, 2, 3), (3isize, true), "123");
+//!
+//!     debug_assert_eq!(
+//!         r#"((1, 2, 3), (3, true), "123")"#,
+//!         format!("{:?}", tuple_of_tuples)
+//!     );
+//!
+//!     // 튜플의 타입 갯수 한계를 12개로 정해둠.
+//!     // let default_by_marco = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+//!     // debug_assert_eq!(
+//!     //     r"(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13)",
+//!     //     format!("{:?}", default_by_marco)
+//!     // );
+//!
+//!     let pair = (3, true);
+//!     debug_assert_eq!("(3, true)", format!("{:?}", pair));
+//!     debug_assert_eq!("(true, 3)", format!("{:?}", reverse(pair)));
+//!
+//!     use std::any::{Any, TypeId};
+//!     // 원소 하나인 튜플을 표현할 때는 원소 뒤에 쉼표를 붙여두기
+//!     debug_assert_eq!(TypeId::of::<(i32,)>(), (3,).type_id());
+//!     debug_assert_eq!(TypeId::of::<i32>(), (3).type_id());
+//!
+//!     let tuple = (10, "이", 0.3, false);
+//!     let (a, b, c, d) = tuple;
+//!
+//!     debug_assert_eq!(
+//!         r#"10 "이" 0.3 false"#,
+//!         format!("{:?} {:?} {:?} {:?}", a, b, c, d)
+//!     );
+//!
+//!     #[derive(Debug)]
+//!     struct Matrix(f32, f32, f32, f32);
+//!
+//!     use std::fmt;
+//!
+//!     impl fmt::Display for Matrix {
+//!         fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+//!             write!(f, "( {} {} )\n( {} {} )", self.0, self.1, self.2, self.3)
+//!         }
+//!     }
+//!
+//!     let mat = Matrix(1.1, 1.2, 2.1, 2.2);
+//!
+//!     debug_assert_eq!("( 1.1 1.2 )\n( 2.1 2.2 )", format!("{:}", mat));
+//!
+//!     fn transpose(matrix: &Matrix) -> Matrix {
+//!         Matrix {
+//!             0: matrix.0,
+//!             1: matrix.2,
+//!             2: matrix.1,
+//!             3: matrix.3,
+//!         }
+//!     }
+//!     debug_assert_eq!("( 1.1 2.1 )\n( 1.2 2.2 )", format!("{:}", transpose(&mat)));
+//! }
+//! ```
