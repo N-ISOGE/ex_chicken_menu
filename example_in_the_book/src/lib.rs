@@ -10,9 +10,6 @@
 //!     - pkg-config
 //!     - openssl
 //!
-//!
-//! # rust, 러스트
-//!
 //! ## rust books
 //! - [`rust_books`]
 //! - [`rust_by_example`]
