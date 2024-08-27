@@ -7,4 +7,4 @@ edition = "2021"
 
 [dependencies]
 log = "0.4.22"
-
+test-log = "0.2.16"
