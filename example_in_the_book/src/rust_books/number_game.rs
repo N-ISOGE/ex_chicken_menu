@@ -25,6 +25,8 @@ fn main() {
 
     println!("Hello, world! {}", give_num(2, 9));
 
+    println!("wow");
+
     let secret_num = rand::thread_rng().gen_range(1..101);
     loop {
         let mut guess = String::new();
